@@ -1,0 +1,27 @@
+﻿
+
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole(Role.Admin.ToString()))
+    {
+        <a>Привет! @User.Identity.Name <i class="fas fa-user-tie"></i></a>
+        <a asp-action="List" asp-controller="Order">Заказы</a>
+        <a asp-action="List" asp-controller="FreelanceSewing">Пошиви</a>
+    }
+    else
+    {
+        <a>Привет! @User.Identity.Name <i class="fas fa-user-edit"></i></a>
+        @await Component.InvokeAsync("CartSummary")
+    }
+
+    <a asp-action="List" asp-controller="Product">Каталог</a>
+    <a asp-action="Logout" asp-controller="Account">Выйти</a>
+    <a href="tel:+375297444009">+375 29 7444 009</a>
+}
+else
+{
+    <a asp-action="List" asp-controller="Product">Каталог</a>
+    <a asp-action="Register" asp-controller="Account">Зарегистрироваться</a>
+    <a asp-action="Login" asp-controller="Account">Войти</a>
+    <a href="tel:+375297444009">+375 29 7444 009</a>
+}

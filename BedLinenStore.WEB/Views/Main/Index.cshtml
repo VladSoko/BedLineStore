@@ -1,0 +1,179 @@
+﻿
+
+
+<link rel="stylesheet" href="~/css/mainStyle.css" />
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog modal-dialog-centered"></div>
+</div>
+
+<div class="mainPage">
+
+    <img class="mainImage" src="~/image/Main/Main.png" />
+    <div class="indent"></div>
+
+    <div class="description">
+
+        <img class="image" src="~/image/Main/Description.png" />
+
+        <div class="text">
+
+            <p class="mainText">Наши клиенты</p>
+
+            <ul>
+                <li>Получают самые <span>превосходные цены по стране</span></li>
+                <li>Пользуются <span>бесплатной доставкой</span> в любой город Беларуси</li>
+                <li>Получают свой заказ всегда <span>вовремя</span> (мы доставляем в течение 2-5 дней с момента получения заказа)</li>
+                <li>Наслаждаются <span>отличнейшим качеством</span> ткани и пошива</li>
+                <li>Возвращаются к нам <span>сновам</span></li>
+            </ul>
+
+            <a class="button" asp-controller="Product" asp-action="List"><span>Посмотреть каталог</span></a>
+
+
+        </div>
+
+    </div>
+
+    <div class="indent"></div>
+
+    <div class="aboutUs">
+
+        <p class="head">Немного о нас</p>
+        <p class="title">Каждый день мы создаем постельное белье, которое наполняет Ваш дом уютом...</p>
+
+        <div class="images">
+
+            <div class="element1">
+                <div class="triangle-right"></div>
+                <div class="text">
+                    <p class="head">Собственное производство</p>
+
+                    <p class="title">Мы сами производим комплекты постельного белья. Именно поэтому мы обращаем огромное внимание на пошив.</p>
+                    <p class="title">Обещаем, Вам понравится все: от качества ткани до каждой ниточки в комплекте.</p>
+                </div>
+
+                <img src="~/image/Main/AboutUs/1.png" />
+
+            </div>
+
+            <div class="element2">
+                <div class="triangle-right"></div>
+                <div class="text">
+                    <p class="head">Состав: 100% хлопок. Материал: поплин, сатин</p>
+
+                    <p class="title">Мы проверили более 100 видов и типов тканей и выбрали, по нашему мнению, самые превосходные. Предлагаем и Вам окунуться в идеальнейшее качество поплина и сатина, которое мы так старательно отбирали...</p>
+                </div>
+
+                <img src="~/image/Main/AboutUs/2.png" />
+
+            </div>
+
+            <div class="element3">
+                <img src="~/image/Main/AboutUs/3.png" />
+                <div class="triangle-right"></div>
+                <div class="text">
+                    <p class="head">Широкий ассортимент цветов</p>
+
+                    <p class="title">В нашем магазине представлено только однотонное постельное белье поскольку именно глубина единого цвета превалирует при создании уюта в доме.</p>
+                    <p class="title">Выбирайте среди отличного ассортимента цветов, и Ваш дом будет пронизан атмосферой комфорта.</p>
+                </div>
+            </div>
+
+            <div class="element4">
+                <img src="~/image/Main/AboutUs/4.png" />
+                <div class="triangle-right"></div>
+                <div class="text">
+                    <p class="head">Индивидуальный пошив</p>
+
+                    <p class="title">У нас представлен весь спектр размеров постельного белья, а также возможен пошив по индивидуальным меркам.</p>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="indent"></div>
+
+    <div class="form">
+
+        <div class="block">
+
+            <p class="head">Индивидуальный пошив</p>
+            <p class="title">Оставьте, пожалуйста, заявку на индивидуальный пошив постельного белья, и наш менеджер свяжется с Вами в течение 24 часов с момента подачи заявки</p>
+
+            <div class="just">
+                <form method="post" class="box">
+
+                    <div class="inputEmail">
+                        <label class="myText">Ваш Email</label>
+                        <input type="text" name="Email" id="inputEmail-m" />
+                        <label class="error" for="inputEmail-m" style="display: none;"></label>
+                    </div>
+
+                    <div class="inputName">
+                        <label class="myText">Ваше Имя</label>
+                        <input type="text" name="Name" id="inputName-m" />
+                        <label class="error" for="inputName-m" style="display: none;"></label>
+                    </div>
+
+                    <div class="inputPhoneNumber">
+                        <label class="myText">Ваш Телефон</label>
+                        <input type="text" name="PhoneNumber" id="PhoneNumber-m" data-inputmask-clearincomplete="true" />
+                        <label class="error" for="PhoneNumber-m" style="display: none;"></label>
+                    </div>
+
+                    <button class="button" type="submit">
+
+                        <span>Отправить заявку</span>
+
+                    </button>
+
+
+                </form>
+
+
+                <p class="titleAcsees">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности</p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="indent"></div>
+
+    <div class="footer">
+        <p class="head">Свяжитесь с нами</p>
+        <p class="title">+375 29 540 02 25</p>
+        <p class="title" style="width: 180px">linesmarket1@gmail.com</p>
+
+        <div class="wrapper">
+
+            <div class="icon instagram">
+                <a href="https://www.instagram.com/lines_market.by"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="footerImages">
+
+            <img class="image1" src="~/image/Main/Footer/1.png" />
+
+            <img class="image2" src="~/image/Main/Footer/2.png" />
+
+            <img class="image3" src="~/image/Main/Footer/4.png" />
+            <img class="image4" src="~/image/Main/Footer/3.png" />
+            <img class="image5" src="~/image/Main/Footer/5.png" />
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="~/js/main/src.js"></script>

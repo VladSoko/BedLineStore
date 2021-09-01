@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1200" />
+    <title>The Lines</title>
+
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="~/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery.inputmask/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery.inputmask/inputmask.min.js"></script>
+
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/errorStyle.css" />
+
+    <link rel="stylesheet" href="~/css/headerFooter.css" />
+
+</head>
+
+<body>
+
+    <div class="wrap">
+        <header>
+            <h1><a asp-controller="Main" asp-action="Index">The Lines</a></h1>
+            <nav>
+                @await Html.PartialAsync("_LoginPartial")
+            </nav>
+        </header>
+
+        <main>
+            @RenderBody()
+        </main>
+
+        <footer>
+            <a asp-controller="Main" asp-action="AboutUs">О программе</a>
+        </footer>
+    </div>
+
+</body>
+</html>

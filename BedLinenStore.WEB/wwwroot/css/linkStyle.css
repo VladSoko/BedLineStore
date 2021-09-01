@@ -1,0 +1,19 @@
+﻿a.nav-link:hover span {
+    color: #808080;
+}
+
+a.footerLink:hover {
+    text-decoration: none;
+}
+
+a.nav-link span {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+
+a.footerLink {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}

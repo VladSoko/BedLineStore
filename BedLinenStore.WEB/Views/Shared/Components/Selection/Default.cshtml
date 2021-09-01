@@ -1,0 +1,24 @@
+﻿@model CategoryViewModel
+
+<input type="hidden" id="bedLinenIdInput" value="@Model.Categories.First().Price" />
+<select class="product-grid__select" id="selectCategory@(Model.BedLineId)" onchange="change(@Model.BedLineId)">
+    @foreach (var item in Model.Categories)
+    {
+        <option value="@item.Price" data-categoryId="@item.Id">@item.Description</option>
+    }
+</select>
+
+
+<script type="text/javascript">
+    function change(id) {
+        var select = document.getElementById("selectCategory" + id);
+        var priceSpan = document.getElementById("priceSpan" + id);
+
+        var inputCategoryId = document.getElementById("categoryIdInput" + id);
+        var fff = $("#" + "selectCategory" + id + " option:selected").attr("data-categoryId");
+        inputCategoryId.value = fff;
+        console.log(fff);
+
+        priceSpan.textContent = 'BYN ' + select.value;
+    }
+</script>

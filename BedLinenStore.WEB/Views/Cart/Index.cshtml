@@ -1,0 +1,104 @@
+﻿@model CartLine
+
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog modal-dialog-centered"></div>
+</div>
+
+<link rel="stylesheet" href="~/css/cartStyle.css" />
+
+@if ((Model?.Products?.Count() ?? 0) == 0)
+{
+    <div style="text-align:center; margin-top: 100px;" class="noProduct">
+        <h4>Корзина пуста</h4>
+        <a asp-controller="Product" asp-action="List">Вернуться к выбору товаров</a>
+    </div>
+
+}
+else
+{
+
+    <div class="card">
+        <div class="row">
+
+            <div class="col-md-8 cart">
+
+                <div class="title">
+                    <div class="row">
+                        <div class="col">
+                            <h4><b>Корзина покупок</b></h4>
+                        </div>
+                        <div class="col align-self-center text-right text-muted" style="text-align: right;">Товаров: @Model.Products.Count()</div>
+                    </div>
+                </div>
+
+
+                @foreach (var item in Model.Products)
+                {
+
+                    <div class="row">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="@item.BedLinen.ImagePath"></div>
+                            <div class="col">
+                                <div class="row text-muted" style="text-align: center;">@item.BedLinen.Name</div>
+                            </div>
+                            <div class="col" style="text-align: right; margin-top: -8px;">BYN @item.Category.Price <a asp-action="Delete" asp-route-productId="@item.Id" class="close"><span class="close">&#10005;</span></a></div>
+                        </div>
+                    </div>
+                }
+                <div class="back-to-shop" style="text-align: center;"><a asp-controller="Product" asp-action="List">Вернуться к выбору товаров</a></div>
+            </div>
+
+            <div class="col-md-4 summary" style="text-align: center;">
+                <div>
+                    <h5><b>Сводка</b></h5>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">ТОВАРОВ: @Model.Products.Count()</div>
+                    <div class="col text-right">BYN @Model.Products.Sum(item => item.Category.Price)</div>
+                </div>
+
+                <form method="post" id="form" class="box">
+
+                    <p>ИМЯ</p>
+                    <label class="error" for="Name" style="display: none;"></label>
+                    <input id="Name" placeholder="Введите ваше имя" name="Name">
+
+                    <p>СТРАНА</p>
+                    <label class="error" for="Country" style="display: none;"></label>
+                    <input id="Country" placeholder="Введите вашу страну" name="Country">
+
+                    <p>ГОРОД</p>
+                    <label class="error" for="City" style="display: none;"></label>
+                    <input id="City" placeholder="Введите ваш город" name="City">
+
+                    <p>УЛИЦА</p>
+                    <label class="error" for="Street" style="display: none;"></label>
+                    <input id="Street" placeholder="Введите вашу улицу" name="Street">
+
+                    <p>ПОЧТОВЫЙ ИНДЕКС</p>
+                    <label class="error" for="Zip" style="display: none;"></label>
+                    <input id="Zip" placeholder="Введите ваш почтовый индекс" name="Zip">
+
+                    <input type="hidden" name="CartLineId" value="@Model.Id" />
+
+                    <button class="btn" id="buttonSubmit" type="submit">ОФОРМИТЬ ЗАКАЗ</button>
+
+                </form>
+
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">ИТОГОВАЯ ЦЕНА</div>
+                    <div class="col" style="text-align: right;">BYN @Model.Products.Sum(item => item.Category.Price)</div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+}
+
+
+<script type="text/javascript" src="~/js/cart/script.js"></script>

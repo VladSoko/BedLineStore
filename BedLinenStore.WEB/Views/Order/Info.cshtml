@@ -1,0 +1,63 @@
+﻿@model Order
+@*<link rel="stylesheet" href="~/css/infoStyle.css">*@
+<link rel="stylesheet" href="~/css/viewProduct.css">
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Заказ номер @Model.Id</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
+
+    <div class="modal-body">
+
+
+
+
+        @foreach (var item in Model.Products)
+        {
+            <div class="viewProduct_main" style="margin-bottom: 20px">
+                <img src="@item.BedLinen.ImagePath">
+
+                <div class="viewProduct_main_text">
+                    <p class="viewProduct_main_text-name">@item.BedLinen.Name</p>
+                    <p class="viewProduct_main_text-price">BYN @item.Category.Price</p>
+                    <p class="viewProduct_main_text-description">@item.Category.Description</p>
+                </div>
+            </div>
+        }
+
+        <div class="row mt-4">
+            <div class="col">
+                <div class="row justify-content-between">
+                    <div class="me-auto col-auto">
+                        <p class="mb-1 text-dark"><b>Детали о заказе</b></p>
+                    </div>
+
+                    <div class="col-auto">
+                        <p class="mb-1"><b>Суммарно</b></p>
+                    </div>
+                    <div class="flex-sm-col col-auto">
+                        <p class="mb-1">BYN @Model.Products.Sum(item => item.Category.Price)</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col">
+                <p class="mb-1">Имя: @Model.Name</p>
+                <p class="mb-1">Почта: @Model.Email</p>
+                <p class="mb-1">Улица: @Model.Street</p>
+                <p class="mb-1">Город: @Model.City</p>
+                <p class="mb-1">Страна: @Model.Country</p>
+                <p class="mb-1">Почтовый индекс: @Model.Zip</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
