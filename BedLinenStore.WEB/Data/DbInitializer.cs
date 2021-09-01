@@ -10,45 +10,45 @@ namespace BedLinenStore.WEB.Data
         {
             context.Database.EnsureCreated();
 
-            if (context.BedLinens.Any())
+            if (context.MainInfos.Any())
             {
                 return;
             }
 
-            var bedLinens = new BedLinen[]
+            var mainInfos = new MainInfo[]
             {
-                new BedLinen
+                new MainInfo
                 {
                     Name = @"Комплект постельного белья ""Latte""",
                     ImageHoverPath = @"/image/hover/1.jpg",
                     ImagePath = @"/image/1.jpg",
                 },
-                new BedLinen
+                new MainInfo
                 {
                     Name = @"Комплект постельного белья ""Grey""",
                     ImageHoverPath = @"/image/hover/2.jpg",
                     ImagePath = @"/image/2.jpg",
                 },
-                new BedLinen
+                new MainInfo
                 {
                     Name = @"Комплект постельного белья ""Plum""",
                     ImageHoverPath = @"/image/hover/3.jpg",
                     ImagePath = @"/image/3.jpg",
                 },
-                new BedLinen
+                new MainInfo
                 {
                     Name = @"Комплект постельного белья ""Menthol""",
                     ImageHoverPath = @"/image/hover/4.jpg",
                     ImagePath = @"/image/4.jpg",
                 },
-                new BedLinen
+                new MainInfo
                 {
                     Name = @"Комплект постельного белья ""White""",
                     ImageHoverPath = @"/image/hover/5.jpg",
                     ImagePath = @"/image/5.jpg",
                 },
             };
-            context.BedLinens.AddRange(bedLinens);
+            context.MainInfos.AddRange(mainInfos);
 
             var categories = new Category[]
             {
@@ -83,7 +83,6 @@ namespace BedLinenStore.WEB.Data
                     Email = "admin123@admin.com",
                     Password = "Admin12345",
                     Role = Role.Admin,
-                    //CartLine = new CartLine()
                 },
                 new User
                 {

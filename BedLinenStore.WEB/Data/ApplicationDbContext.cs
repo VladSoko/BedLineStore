@@ -6,7 +6,7 @@ namespace BedLinenStore.WEB.Data
     public class ApplicationDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<BedLinen> BedLinens { get; set; }
+        public DbSet<MainInfo> MainInfos { get; set; }
         public DbSet<CartLine> CartLines { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -23,7 +23,7 @@ namespace BedLinenStore.WEB.Data
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<FreelanceSewing>().ToTable("FreelanceSewing");
             modelBuilder.Entity<Category>().ToTable("Category");
-            modelBuilder.Entity<BedLinen>().ToTable("BedLinen");
+            modelBuilder.Entity<MainInfo>().ToTable("MainInfo");
             modelBuilder.Entity<CartLine>().ToTable("CartLine");
             modelBuilder.Entity<Product>().ToTable("Product");
             modelBuilder.Entity<Order>().ToTable("Order");

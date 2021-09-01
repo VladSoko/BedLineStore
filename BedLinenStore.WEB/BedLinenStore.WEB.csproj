@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Services\Implementations" />
+    <Folder Include="Services\Interfaces" />
     <Folder Include="wwwroot\image\Main\" />
     <Folder Include="wwwroot\image\hover\" />
     <Folder Include="wwwroot\lib\" />

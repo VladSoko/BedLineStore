@@ -7,13 +7,13 @@ namespace BedLinenStore.WEB.Models.Entities
     {
         public int Id { get; set; }
 
-        public BedLinen BedLinen { get; set; }
+        public MainInfo MainInfo { get; set; }
 
         public Category Category { get; set; }
 
         public int CategoryId { get; set; }
 
-        public int BedLinenId { get; set; }
+        public int MainInfoId { get; set; }
 
         public ICollection<Order> Orders { get; set; }
 

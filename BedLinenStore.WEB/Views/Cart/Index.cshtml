@@ -38,9 +38,9 @@ else
 
                     <div class="row">
                         <div class="row main align-items-center">
-                            <div class="col-2"><img class="img-fluid" src="@item.BedLinen.ImagePath"></div>
+                            <div class="col-2"><img class="img-fluid" src="@item.MainInfo.ImagePath"></div>
                             <div class="col">
-                                <div class="row text-muted" style="text-align: center;">@item.BedLinen.Name</div>
+                                <div class="row text-muted" style="text-align: center;">@item.MainInfo.Name</div>
                             </div>
                             <div class="col" style="text-align: right; margin-top: -8px;">BYN @item.Category.Price <a asp-action="Delete" asp-route-productId="@item.Id" class="close"><span class="close">&#10005;</span></a></div>
                         </div>

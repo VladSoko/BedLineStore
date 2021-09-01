@@ -20,12 +20,12 @@ namespace BedLinenStore.WEB.Controllers
         [AllowAnonymous]
         public IActionResult List()
         {
-            return View(context.BedLinens.ToList());
+            return View(context.MainInfos.ToList());
         }
 
-        public IActionResult AddToCart(int bedLinenId, int categoryId)
+        public IActionResult AddToCart(int mainInfoId, int categoryId)
         {
-            BedLinen bedLinen = context.BedLinens.FirstOrDefault(item => item.Id == bedLinenId);
+            MainInfo mainInfo = context.MainInfos.FirstOrDefault(item => item.Id == mainInfoId);
             Category category = context.Categories.First(item => item.Id == categoryId);
 
             User user = context.Users.FirstOrDefault(item => item.Email == User.Identity.Name);
@@ -36,15 +36,18 @@ namespace BedLinenStore.WEB.Controllers
 
             Product product = new Product
             {
-                BedLinen = bedLinen,
+                MainInfo = mainInfo,
                 Category = context.Categories.First(item => item.Id == categoryId),
             };
 
-            Product product1 = cartLine.Products.FirstOrDefault(item => item.CategoryId == categoryId && item.BedLinenId == bedLinenId);
+            Product product1 =
+                cartLine.Products.FirstOrDefault(item =>
+                    item.CategoryId == categoryId && item.MainInfoId == mainInfoId);
             if (product1 != null)
             {
                 return PartialView("AddToCartError");
             }
+
             cartLine.Products.Add(product);
 
             context.SaveChanges();

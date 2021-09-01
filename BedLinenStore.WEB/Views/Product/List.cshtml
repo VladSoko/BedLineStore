@@ -1,6 +1,6 @@
-﻿@model IEnumerable<BedLinen>
+﻿@model IEnumerable<MainInfo>
 
-<link rel="stylesheet" href="~/css/productListStyle.css" />
+<link rel="stylesheet" href="~/css/productListStyle.css"/>
 
 <div id="modDialog" class="modal fade">
     <div id="dialogContent" class="modal-dialog modal-dialog-centered"></div>
@@ -18,28 +18,31 @@
                         <div class="product-grid__product">
 
                             <div class="product-grid__img-wrapper">
-                                <img src="@item.ImagePath" alt="Img" class="product-grid__img" />
-                                <img src="@item.ImageHoverPath" alt="Img" class="overlay" />
+                                <img src="@item.ImagePath" alt="Img" class="product-grid__img"/>
+                                <img src="@item.ImageHoverPath" alt="Img" class="overlay"/>
                             </div>
 
                             <span class="product-grid__title">@item.Name</span>
                             <span class="product-grid__price" id="priceSpan@(item.Id)"></span>
 
-                            
-                                <input type="hidden" name="categoryId" id="categoryIdInput@(item.Id)" />
 
-                                <div class="product-grid__extend-wrapper">
-                                    <div class="product-grid__extend" id="elements">
-                                        
-                                        @await Component.InvokeAsync("Selection", item.Id)
-                                        @if (User.IsInRole(Role.AuthorizedUser.ToString()))
-                                        {
+                            <input type="hidden" name="categoryId" id="categoryIdInput@(item.Id)"/>
 
-                                            <a class="product-grid__btn product-grid__add-to-cart" onclick="myfunction(@item.Id)" style="display:block"><i class="fa fa-cart-arrow-down"></i>Добавить в корзину</a>
-                                        }
+                            <div class="product-grid__extend-wrapper">
+                                <div class="product-grid__extend" id="elements">
 
-                                    </div>
+                                    @await Component.InvokeAsync("Selection", item.Id)
+                                    @if (User.IsInRole(Role.AuthorizedUser.ToString()))
+                                    {
+                                        <a class="product-grid__btn product-grid__add-to-cart"
+                                           onclick="myfunction(@item.Id)"
+                                           style="display:block">
+                                            <i class="fa fa-cart-arrow-down"></i>
+                                            Добавить в корзину
+                                        </a>
+                                    }
                                 </div>
+                            </div>
                         </div>
                     </div>
                 }
@@ -49,18 +52,15 @@
 </div>
 
 
-
 <script type="text/javascript">
 
 
     function myfunction(id) {
         var inputCategoryIdInput = document.getElementById("categoryIdInput" + id);
-
-
             $.ajax({
                 type: "GET",
                 url: "AddToCart",
-                data: { "bedLinenId": id, "categoryId": inputCategoryIdInput.value },
+                data: { "mainInfoId": id, "categoryId": inputCategoryIdInput.value },
                 dataType: "html",
                 success: function (data) {
                     $('#dialogContent').html(data);
@@ -80,9 +80,3 @@
     window.onload = Create;
     window.onunload = Create;
 </script>
-
-
-
-
-
-

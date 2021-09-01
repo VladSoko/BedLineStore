@@ -23,7 +23,7 @@ namespace BedLinenStore.WEB.Controllers
                 .Include(b => b.Products)
                 .ThenInclude(a => a.Category)
                 .Include(a => a.Products)
-                .ThenInclude(a => a.BedLinen)
+                .ThenInclude(a => a.MainInfo)
                 .FirstOrDefault(item => item.User.Email == User.Identity.Name);
 
             return View(cartLine);
@@ -36,7 +36,7 @@ namespace BedLinenStore.WEB.Controllers
                 .Include(b => b.Products)
                 .FirstOrDefault(item => item.User.Email == User.Identity.Name);
 
-            cartLine.Products.Remove(product);
+            cartLine?.Products.Remove(product);
             context.SaveChanges();
 
             return RedirectToAction("Index");
@@ -49,7 +49,7 @@ namespace BedLinenStore.WEB.Controllers
                 .Include(b => b.Products)
                 .FirstOrDefault(item => item.Id == cartLineId);
 
-            order.Products = cartLine.Products;
+            order.Products = cartLine?.Products;
 
             order.Email = User.Identity.Name;
             context.Orders.Add(order);

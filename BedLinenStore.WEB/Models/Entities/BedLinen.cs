@@ -1,6 +1,6 @@
 ﻿namespace BedLinenStore.WEB.Models.Entities
 {
-    public class BedLinen
+    public class MainInfo
     {
         public int Id { get; set; }
 

@@ -18,7 +18,10 @@ namespace BedLinenStore.WEB.Controllers
 
         public IActionResult List()
         {
-            var orders = context.Orders.Include(item => item.Products).ThenInclude(a => a.Category).Include(item => item.Products).ThenInclude(a => a.BedLinen);
+            var orders = context.Orders
+                .Include(item => item.Products)
+                .ThenInclude(a => a.Category)
+                .Include(item => item.Products).ThenInclude(a => a.MainInfo);
             return View(orders);
         }
 
@@ -36,7 +39,7 @@ namespace BedLinenStore.WEB.Controllers
                 .Include(item => item.Products)
                 .ThenInclude(a => a.Category)
                 .Include(item => item.Products)
-                .ThenInclude(a => a.BedLinen)
+                .ThenInclude(a => a.MainInfo)
                 .FirstOrDefault(item => item.Id == id));
         }
     }

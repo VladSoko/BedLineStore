@@ -10,17 +10,13 @@
 
 
     <div class="modal-body">
-
-
-
-
         @foreach (var item in Model.Products)
         {
             <div class="viewProduct_main" style="margin-bottom: 20px">
-                <img src="@item.BedLinen.ImagePath">
+                <img src="@item.MainInfo.ImagePath">
 
                 <div class="viewProduct_main_text">
-                    <p class="viewProduct_main_text-name">@item.BedLinen.Name</p>
+                    <p class="viewProduct_main_text-name">@item.MainInfo.Name</p>
                     <p class="viewProduct_main_text-price">BYN @item.Category.Price</p>
                     <p class="viewProduct_main_text-description">@item.Category.Description</p>
                 </div>
