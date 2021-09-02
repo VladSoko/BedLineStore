@@ -65,7 +65,7 @@ h1 {
 }
 
     .product-grid__product:hover {
-        box-shadow: 0px 0px 0px 1px #eee;
+        box-shadow: 0 0 0 1px #eee;
         z-index: 50;
     }
 
@@ -123,7 +123,7 @@ h1 {
     position: absolute;
     padding: 0 1rem 1rem 1rem;
     margin: 0.4375rem -1rem 0;
-    box-shadow: 0px 0px 0px 1px #eee;
+    box-shadow: 0 0 0 1px #eee;
     background: #fff;
     border-radius: 0 0 4px 4px;
 }

@@ -1,30 +1,25 @@
 ﻿
-
 .title {
     margin-bottom: 5vh
 }
 
 .card {
-    margin: auto;
     max-width: 950px;
     width: 90%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1rem;
     border: transparent;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px auto;
 }
 
-    .card a {
-        text-decoration: none;
-    }
+.card a {
+    text-decoration: none;
+}
 
-        .card a:hover {
-            text-decoration: none;
-            color: #999999;
-        }
-
-
+.card a:hover {
+    text-decoration: none;
+    color: #999999;
+}
 
 .cart {
     background-color: #fff;
@@ -32,8 +27,6 @@
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 1rem
 }
-
-
 
 .summary {
     background-color: #ddd;
@@ -43,15 +36,13 @@
     color: rgb(65, 65, 65)
 }
 
+.summary .col-2 {
+    padding: 0
+}
 
-
-    .summary .col-2 {
-        padding: 0
-    }
-
-    .summary .col-10 {
-        padding: 0
-    }
+.summary .col-10 {
+    padding: 0
+}
 
 .row {
     margin: 0
@@ -111,9 +102,9 @@ input {
     background-color: rgb(247, 247, 247)
 }
 
-    input:focus::-webkit-input-placeholder {
-        color: transparent
-    }
+input:focus::-webkit-input-placeholder {
+    color: transparent
+}
 
 .btn {
     background-color: #000;
@@ -126,18 +117,18 @@ input {
     border-radius: 0
 }
 
-    .btn:hover {
-        background-color: white
-    }
+.btn:hover {
+    background-color: white
+}
 
 a {
     color: black
 }
 
-    a:hover {
-        color: black;
-        text-decoration: none
-    }
+a:hover {
+    color: black;
+    text-decoration: none
+}
 
 p {
     margin-bottom: 5px;
@@ -149,7 +140,7 @@ p {
     text-decoration: none;
 }
 
-    .noProduct a:hover {
-        text-decoration: none;
-        color: #999999;
-    }
+.noProduct a:hover {
+    text-decoration: none;
+    color: #999999;
+}

@@ -89,18 +89,19 @@ namespace BedLinenStore.WEB.Data
                     Email = "user123@user.com",
                     Password = "User123",
                     Role = Role.AuthorizedUser,
+                    CartLine = new CartLine(),
                 }
             };
 
-            var cartLines = new CartLine[]
-            {
-                new CartLine
-                {
-                    User = users[1],
-                }
-            };
+            // var cartLines = new CartLine[]
+            // {
+            //     new CartLine
+            //     {
+            //         User = users[1],
+            //     }
+            // };
             context.Users.AddRange(users);
-            context.CartLines.AddRange(cartLines);
+            // context.CartLines.AddRange(cartLines);
 
             context.SaveChanges();
         }
