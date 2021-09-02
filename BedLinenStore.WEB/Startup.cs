@@ -44,6 +44,7 @@ namespace BedLinenStore.WEB
             {
                 app.UseExceptionHandler("/Error/Problem");
             }
+
             app.UseStaticFiles();
 
             app.UseRouting();

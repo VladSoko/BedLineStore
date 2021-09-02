@@ -1,26 +1,24 @@
 ﻿
-
-
-    .mainPage .mainImage {
-        height: 626px;
-        /*margin-top: 20px;*/
-    }
+.mainPage .mainImage {
+    height: 626px;
+    /*margin-top: 20px;*/
+}
 
 .mainPage .indent {
     min-width: 100%;
     height: 40px;
 }
 
-    .mainPage .description {
-        position: relative;
-        height: 582px;
-    }
+.mainPage .description {
+    position: relative;
+    height: 582px;
+}
 
-    .mainPage .description .image {
-        margin: 0px auto;
-        height: 100%;
-        position: absolute;
-    }
+.mainPage .description .image {
+    margin: 0px auto;
+    height: 100%;
+    position: absolute;
+}
 
 .description .text {
     position: absolute;
@@ -30,349 +28,347 @@
     background: #F4F2F5;
 }
 
-    .description .text .mainText {
-        margin-left: 95px;
-        margin-top: 52px;
-        font-family: Times New Roman;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 30px;
-        line-height: 34px;
-        color: #000000;
-    }
+.description .text .mainText {
+    margin-left: 95px;
+    margin-top: 52px;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 34px;
+    color: #000000;
+}
 
-    .description .text ul {
-        width: 269px;
-        height: 318px;
-        margin-left: 66px;
-        margin-top: 50px;
-        font-family: Times New Roman;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 19px;
-        line-height: 22px;
-        color: #000000;
-    }
+.description .text ul {
+    width: 269px;
+    height: 318px;
+    margin-left: 66px;
+    margin-top: 50px;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 22px;
+    color: #000000;
+}
 
-    .description .text li span {
-        font-weight: 700;
-    }
+.description .text li span {
+    font-weight: 700;
+}
 
-    .description .text .button {
-        display: block;
-        padding-top: 16px;
-        text-decoration: none;
-        width: 241px;
-        height: 60px;
-        margin-left: 79px;
-        background: #F75958;
-        border-radius: 40px;
-        border: 0;
-        text-align: center
-    }
+.description .text .button {
+    display: block;
+    padding-top: 16px;
+    text-decoration: none;
+    width: 241px;
+    height: 60px;
+    margin-left: 79px;
+    background: #F75958;
+    border-radius: 40px;
+    border: 0;
+    text-align: center
+}
 
-        .description .text .button span {
-            font-family: Verdana;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 14px;
-            color: #FFFFFF;
-        }
+.description .text .button span {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #FFFFFF;
+}
 
-        .description .text .button:active {
-            transform: translateY(1px);
-            filter: saturate(150%);
-        }
+.description .text .button:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
 
-        .description .text .button:hover {
-            background: #E15050;
-        }
+.description .text .button:hover {
+    background: #E15050;
+}
 
 .aboutUs {
     /*width: 100%;*/
-/*    margin: 0px auto;*/
+    /*    margin: 0px auto;*/
     height: 750px;
     background: #F4F2F5;
     padding-top: 40px;
 }
 
-    .aboutUs .head {
-        width: 193px;
-        height: 34px;
-        margin-left: 45%;
-        font-family: Times New Roman;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 30px;
-        color: #000000;
-    }
+.aboutUs .head {
+    width: 193px;
+    height: 34px;
+    margin-left: 45%;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: #000000;
+}
 
-    .aboutUs .title {
-        width: 300px;
-        height: 34px;
-        margin-left: 41.5%;
-        margin-top: 30px;
-        font-family: Times New Roman;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 17px;
-        line-height: 17px;
-        text-align: center;
-        color: #000000;
-    }
+.aboutUs .title {
+    width: 300px;
+    height: 34px;
+    margin-left: 41.5%;
+    margin-top: 30px;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 17px;
+    text-align: center;
+    color: #000000;
+}
 
-    .aboutUs .images {
-        position: relative;
-        width: 640px;
-        height: 360px;
-        margin-top: 40px;
-        margin-left: 26%;
-    }
+.aboutUs .images {
+    position: relative;
+    width: 640px;
+    height: 360px;
+    margin-top: 40px;
+    margin-left: 26%;
+}
 
-        .aboutUs .images .element1 .text {
-            position: absolute;
-            width: 200px;
-            height: 250px;
-            background: #FFFFFF;
-        }
+.aboutUs .images .element1 .text {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    background: #FFFFFF;
+}
 
-        .aboutUs .images .element1 img {
-            position: absolute;
-            width: 200px;
-            height: 250px;
-            left: 200px;
-            z-index: 1;
-        }
+.aboutUs .images .element1 img {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    left: 200px;
+    z-index: 1;
+}
 
-        .aboutUs .images .element1 .text {
-            font-family: Times New Roman;
-            font-style: normal;
-            color: #000000;
-            margin-left: 0px;
-        }
+.aboutUs .images .element1 .text {
+    font-family: Times New Roman;
+    font-style: normal;
+    color: #000000;
+    margin-left: 0px;
+}
 
-            .aboutUs .images .element1 .text .head {
-                width: 117px;
-                height: 28px;
-                font-weight: bold;
-                font-size: 18px;
-                line-height: 18px;
-                margin-left: 20px;
-                text-align: left;
-                margin-top: 20px;
-            }
+.aboutUs .images .element1 .text .head {
+    width: 117px;
+    height: 28px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    margin-left: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
 
-            .aboutUs .images .element1 .text .title {
-                width: 160px;
-                height: 70px;
-                margin-top: 0px;
-                font-weight: normal;
-                font-size: 14px;
-                line-height: 14px;
-                margin-left: 20px;
-                text-align: left;
-            }
+.aboutUs .images .element1 .text .title {
+    width: 160px;
+    height: 70px;
+    margin-top: 0px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    margin-left: 20px;
+    text-align: left;
+}
 
-        .aboutUs .images .element1 .triangle-right {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-top: 15px solid transparent;
-            border-left: 15px solid white;
-            border-bottom: 15px solid transparent;
-            left: 200px;
-            z-index: 2;
-            top: 118px;
-        }
-
-
-
-        /***********************************************************/
+.aboutUs .images .element1 .triangle-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-left: 15px solid white;
+    border-bottom: 15px solid transparent;
+    left: 200px;
+    z-index: 2;
+    top: 118px;
+}
 
 
-
-        .aboutUs .images .element2 .text {
-            position: absolute;
-            width: 200px;
-            height: 250px;
-            background: #FFFFFF;
-            left: 400px;
-        }
-
-        .aboutUs .images .element2 img {
-            position: absolute;
-            width: 200px;
-            height: 250px;
-            left: 600px;
-            z-index: 1;
-        }
-
-        .aboutUs .images .element2 .triangle-right {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-top: 15px solid transparent;
-            border-left: 15px solid white;
-            border-bottom: 15px solid transparent;
-            left: 600px;
-            z-index: 2;
-            top: 118px;
-        }
-
-        .aboutUs .images .element2 .text {
-            font-family: Times New Roman;
-            font-style: normal;
-            color: #000000;
-            margin-left: 0px;
-        }
-
-            .aboutUs .images .element2 .text .head {
-                width: 180px;
-                height: 28px;
-                font-weight: bold;
-                font-size: 16px;
-                line-height: 18px;
-                margin-left: 20px;
-                text-align: left;
-                margin-top: 20px;
-            }
-
-            .aboutUs .images .element2 .text .title {
-                width: 160px;
-                height: 70px;
-                margin-top: 40px;
-                font-weight: normal;
-                font-size: 14px;
-                line-height: 14px;
-                margin-left: 20px;
-                text-align: left;
-            }
+/***********************************************************/
 
 
-        /*******************************************************************/
+.aboutUs .images .element2 .text {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    background: #FFFFFF;
+    left: 400px;
+}
+
+.aboutUs .images .element2 img {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    left: 600px;
+    z-index: 1;
+}
+
+.aboutUs .images .element2 .triangle-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-left: 15px solid white;
+    border-bottom: 15px solid transparent;
+    left: 600px;
+    z-index: 2;
+    top: 118px;
+}
+
+.aboutUs .images .element2 .text {
+    font-family: Times New Roman;
+    font-style: normal;
+    color: #000000;
+    margin-left: 0px;
+}
+
+.aboutUs .images .element2 .text .head {
+    width: 180px;
+    height: 28px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    margin-left: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.aboutUs .images .element2 .text .title {
+    width: 160px;
+    height: 70px;
+    margin-top: 40px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    margin-left: 20px;
+    text-align: left;
+}
 
 
-        .aboutUs .images .element3 .text {
-            position: absolute;
-            width: 200px;
-            height: 250px;
-            background: #FFFFFF;
-            left: 200px;
-            top: 250px;
-        }
+/*******************************************************************/
 
-        .aboutUs .images .element3 img {
-            position: absolute;
-            width: 200px;
-            height: 250px;
-            z-index: 1;
-            top: 250px;
-        }
 
-        .aboutUs .images .element3 .triangle-right {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-top: 15px solid transparent;
-            border-left: 15px solid white;
-            border-bottom: 15px solid transparent;
-            left: 186px;
-            z-index: 2;
-            top: 368px;
-            transform: rotate(-180deg);
-        }
+.aboutUs .images .element3 .text {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    background: #FFFFFF;
+    left: 200px;
+    top: 250px;
+}
 
-        .aboutUs .images .element3 .text {
-            font-family: Times New Roman;
-            font-style: normal;
-            color: #000000;
-            margin-left: 0px;
-        }
+.aboutUs .images .element3 img {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    z-index: 1;
+    top: 250px;
+}
 
-            .aboutUs .images .element3 .text .head {
-                width: 180px;
-                height: 28px;
-                font-weight: bold;
-                font-size: 16px;
-                line-height: 18px;
-                margin-left: 20px;
-                text-align: left;
-                margin-top: 20px;
-            }
+.aboutUs .images .element3 .triangle-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-left: 15px solid white;
+    border-bottom: 15px solid transparent;
+    left: 186px;
+    z-index: 2;
+    top: 368px;
+    transform: rotate(-180deg);
+}
 
-            .aboutUs .images .element3 .text .title {
-                width: 175px;
-                height: 90px;
-                margin-top: 10px;
-                font-weight: normal;
-                font-size: 14px;
-                line-height: 14px;
-                margin-left: 20px;
-                text-align: left;
-            }
+.aboutUs .images .element3 .text {
+    font-family: Times New Roman;
+    font-style: normal;
+    color: #000000;
+    margin-left: 0px;
+}
 
-        /******************************************************************************/
+.aboutUs .images .element3 .text .head {
+    width: 180px;
+    height: 28px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    margin-left: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
 
-        .aboutUs .images .element4 .text {
-            position: absolute;
-            width: 200px;
-            height: 250px;
-            background: #FFFFFF;
-            left: 600px;
-            top: 250px;
-        }
+.aboutUs .images .element3 .text .title {
+    width: 175px;
+    height: 90px;
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    margin-left: 20px;
+    text-align: left;
+}
 
-        .aboutUs .images .element4 img {
-            position: absolute;
-            width: 200px;
-            height: 250px;
-            z-index: 1;
-            top: 250px;
-            left: 400px;
-        }
+/******************************************************************************/
 
-        .aboutUs .images .element4 .triangle-right {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-top: 15px solid transparent;
-            border-left: 15px solid white;
-            border-bottom: 15px solid transparent;
-            left: 586px;
-            z-index: 2;
-            top: 368px;
-            transform: rotate(-180deg);
-        }
+.aboutUs .images .element4 .text {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    background: #FFFFFF;
+    left: 600px;
+    top: 250px;
+}
 
-        .aboutUs .images .element4 .text {
-            padding-top: 40px;
-            font-family: Times New Roman;
-            font-style: normal;
-            color: #000000;
-            margin-left: 0px;
-        }
+.aboutUs .images .element4 img {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    z-index: 1;
+    top: 250px;
+    left: 400px;
+}
 
-            .aboutUs .images .element4 .text .head {
-                width: 180px;
-                height: 28px;
-                font-weight: bold;
-                font-size: 16px;
-                line-height: 18px;
-                margin-left: 20px;
-                text-align: left;
-                margin-top: 20px;
-            }
+.aboutUs .images .element4 .triangle-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-left: 15px solid white;
+    border-bottom: 15px solid transparent;
+    left: 586px;
+    z-index: 2;
+    top: 368px;
+    transform: rotate(-180deg);
+}
 
-            .aboutUs .images .element4 .text .title {
-                width: 160px;
-                height: 90px;
-                margin-top: 10px;
-                font-weight: normal;
-                font-size: 14px;
-                line-height: 14px;
-                margin-left: 20px;
-                text-align: left;
-            }
+.aboutUs .images .element4 .text {
+    padding-top: 40px;
+    font-family: Times New Roman;
+    font-style: normal;
+    color: #000000;
+    margin-left: 0px;
+}
+
+.aboutUs .images .element4 .text .head {
+    width: 180px;
+    height: 28px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    margin-left: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.aboutUs .images .element4 .text .title {
+    width: 160px;
+    height: 90px;
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    margin-left: 20px;
+    text-align: left;
+}
 
 /********************************************************/
 .form {
@@ -383,16 +379,16 @@
     justify-content: center;
 }
 
-    .form .block {
-        width: 400px;
-        margin: auto;
-        vertical-align: middle;
-        background: #FFFFFF;
-        border: 3px solid #6D4874;
-        box-sizing: border-box;
-        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.31);
-        padding-top: 20px;
-    }
+.form .block {
+    width: 400px;
+    margin: auto;
+    vertical-align: middle;
+    background: #FFFFFF;
+    border: 3px solid #6D4874;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.31);
+    padding-top: 20px;
+}
 
 .just {
     height: 80%;
@@ -432,48 +428,48 @@
     margin-left: 60px;
 }
 
-    .inputEmail .myText {
-        width: 100px;
-        font-family: Times New Roman;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        color: #000000;
-        display: block;
-    }
+.inputEmail .myText {
+    width: 100px;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #000000;
+    display: block;
+}
 
-    .inputEmail input[type=text] {
-        border: none;
-        background: none;
-        outline: none;
-        padding: 0;
-        width: 250px;
-        border-bottom: 0.5px solid #9E9E9E;
-    }
+.inputEmail input[type=text] {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    width: 250px;
+    border-bottom: 0.5px solid #9E9E9E;
+}
 
 .inputName {
     margin-top: 30px;
     margin-left: 60px;
 }
 
-    .inputName .myText {
-        width: 100px;
-        font-family: Times New Roman;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        color: #000000;
-        display: block;
-    }
+.inputName .myText {
+    width: 100px;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #000000;
+    display: block;
+}
 
-    .inputName input[type=text] {
-        border: none;
-        background: none;
-        outline: none;
-        padding: 0;
-        width: 250px;
-        border-bottom: 0.5px solid #9E9E9E;
-    }
+.inputName input[type=text] {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    width: 250px;
+    border-bottom: 0.5px solid #9E9E9E;
+}
 
 
 .inputPhoneNumber {
@@ -481,24 +477,24 @@
     margin-left: 60px;
 }
 
-    .inputPhoneNumber .myText {
-        width: 100px;
-        font-family: Times New Roman;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        color: #000000;
-        display: block;
-    }
+.inputPhoneNumber .myText {
+    width: 100px;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #000000;
+    display: block;
+}
 
-    .inputPhoneNumber input[type=text] {
-        border: none;
-        background: none;
-        outline: none;
-        padding: 0;
-        width: 250px;
-        border-bottom: 0.5px solid #9E9E9E;
-    }
+.inputPhoneNumber input[type=text] {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    width: 250px;
+    border-bottom: 0.5px solid #9E9E9E;
+}
 
 form .button {
     width: 200px;
@@ -510,22 +506,22 @@ form .button {
     border: 0;
 }
 
-    form .button span {
-        font-family: Verdana;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 14px;
-        color: #FFFFFF;
-    }
+form .button span {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #FFFFFF;
+}
 
-    form .button:active {
-        transform: translateY(1px);
-        filter: saturate(150%);
-    }
+form .button:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
 
-    form .button:hover {
-        background: #E15050;
-    }
+form .button:hover {
+    background: #E15050;
+}
 
 form {
     padding-left: 10px;
@@ -550,7 +546,6 @@ form {
 }
 
 
-
 /********************************************************************/
 
 .footer {
@@ -560,82 +555,79 @@ form {
     padding-top: 40px;
 }
 
-    .footer .head {
-        margin-left: auto;
-        margin-right: auto;
-        width: 170px;
-        height: 20px;
-        font-family: Times New Roman;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 20px;
-        color: #000000;
-        margin-bottom: 40px;
-    }
+.footer .head {
+    margin-left: auto;
+    margin-right: auto;
+    width: 170px;
+    height: 20px;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 40px;
+}
 
-    .footer .title {
-        margin-left: auto;
-        margin-right: auto;
-        width: 125px;
-        height: 10px;
-        font-family: Times New Roman;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        text-align: center;
-        color: #000000;
-    }
-
+.footer .title {
+    margin-left: auto;
+    margin-right: auto;
+    width: 125px;
+    height: 10px;
+    font-family: Times New Roman;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    color: #000000;
+}
 
 
 .wrapper {
     margin-top: 50px;
 }
 
-    .wrapper .icon {
-        margin: 0 20px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        position: relative;
-        z-index: 2;
-        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
+.wrapper .icon {
+    margin: 0 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
-        .wrapper .icon a {
-            display: block;
-            height: 60px;
-            width: 60px;
-            background: #fff;
-            border-radius: 50%;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
-            transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            color: #000;
-        }
+.wrapper .icon a {
+    display: block;
+    height: 60px;
+    width: 60px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: #000;
+}
 
-            .wrapper .icon a i {
-                line-height: 60px;
-                font-size: 25px;
-            }
+.wrapper .icon a i {
+    line-height: 60px;
+    font-size: 25px;
+}
 
-            .wrapper .icon a:hover {
-                color: #fff;
-            }
+.wrapper .icon a:hover {
+    color: #fff;
+}
 
-            .wrapper .icon a:hover {
-                text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
-            }
-
-
+.wrapper .icon a:hover {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+}
 
 
-    .wrapper .instagram a:hover {
-        background: #333;
-    }
+.wrapper .instagram a:hover {
+    background: #333;
+}
 
 .footer .line {
     margin-top: 20px;
@@ -652,41 +644,41 @@ form {
     margin-right: auto;
 }
 
-    .footerImages .image1 {
-        position: absolute;
-        width: 280px;
-        height: 290.96px;
-    }
+.footerImages .image1 {
+    position: absolute;
+    width: 280px;
+    height: 290.96px;
+}
 
-    .footerImages .image2 {
-        position: absolute;
-        width: 150px;
-        height: 140.04px;
-        left: 292px;
-    }
+.footerImages .image2 {
+    position: absolute;
+    width: 150px;
+    height: 140.04px;
+    left: 292px;
+}
 
-    .footerImages .image3 {
-        position: absolute;
-        width: 150px;
-        height: 140.04px;
-        left: 292px;
-        top: 150.81px;
-    }
+.footerImages .image3 {
+    position: absolute;
+    width: 150px;
+    height: 140.04px;
+    left: 292px;
+    top: 150.81px;
+}
 
-    .footerImages .image4 {
-        position: absolute;
-        width: 150px;
-        height: 140.04px;
-        left: 454px;
-    }
+.footerImages .image4 {
+    position: absolute;
+    width: 150px;
+    height: 140.04px;
+    left: 454px;
+}
 
-    .footerImages .image5 {
-        position: absolute;
-        width: 150px;
-        height: 140.04px;
-        left: 454px;
-        top: 150.81px;
-    }
+.footerImages .image5 {
+    position: absolute;
+    width: 150px;
+    height: 140.04px;
+    left: 454px;
+    top: 150.81px;
+}
 
 .modal-body-head {
     font-family: Times New Roman;

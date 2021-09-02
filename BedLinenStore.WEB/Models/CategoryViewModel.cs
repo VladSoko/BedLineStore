@@ -10,4 +10,3 @@ namespace BedLinenStore.WEB.Models
         public int BedLineId { get; set; }
     }
 }
-
