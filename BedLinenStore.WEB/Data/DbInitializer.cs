@@ -15,7 +15,7 @@ namespace BedLinenStore.WEB.Data
                 return;
             }
 
-            var mainInfos = new MainInfo[]
+            var mainInfos = new[]
             {
                 new MainInfo
                 {
@@ -50,7 +50,7 @@ namespace BedLinenStore.WEB.Data
             };
             context.MainInfos.AddRange(mainInfos);
 
-            var categories = new Category[]
+            var categories = new[]
             {
                 new Category
                 {
@@ -76,7 +76,7 @@ namespace BedLinenStore.WEB.Data
 
             context.Categories.AddRange(categories);
 
-            var users = new User[]
+            var users = new[]
             {
                 new User
                 {
@@ -92,17 +92,8 @@ namespace BedLinenStore.WEB.Data
                     CartLine = new CartLine(),
                 }
             };
-
-            // var cartLines = new CartLine[]
-            // {
-            //     new CartLine
-            //     {
-            //         User = users[1],
-            //     }
-            // };
+            
             context.Users.AddRange(users);
-            // context.CartLines.AddRange(cartLines);
-
             context.SaveChanges();
         }
     }

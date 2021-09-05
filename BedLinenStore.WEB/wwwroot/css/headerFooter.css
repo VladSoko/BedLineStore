@@ -4,17 +4,24 @@
     padding: 0;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     min-width: 1200px;
 }
 
 .main-wrapper {
     margin: 0 auto;
-    min-width: 1600px !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .main-wrapper-footer {
-    margin: 30px 0;
+    padding: 20px 0;
     display: flex;
     align-items: center;
     justify-content: center
@@ -34,7 +41,7 @@ body {
 .main-wrapper-header {
     display: flex;
     letter-spacing: 1px;
-    padding: 2em 5%;
+    padding: 20px 30px;
     justify-content: space-between;
     align-items: center;
 }

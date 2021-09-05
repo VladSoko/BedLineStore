@@ -13,7 +13,10 @@
         });
     }
 
-    $("#PhoneNumber-m").inputmask("+375 (99) 99-99-999", { "clearIncomplete": true });
+    $("#phoneNumber").inputmask("+375 (99) 99-99-999",
+        {
+            "clearIncomplete": true,
+        });
 
     jQuery.validator.addMethod(
         "regex",

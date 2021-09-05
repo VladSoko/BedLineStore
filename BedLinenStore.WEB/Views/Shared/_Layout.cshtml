@@ -4,6 +4,9 @@
     <meta charset="utf-8"/>
     <title>The Lines</title>
 
+    <link rel="icon" href="~/image/favicon/bed-sheets.png" />
+    
+    <link rel="stylesheet" href="~/css/helpers/clear.css"/>
     <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css"/>
     <script type="text/javascript" src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
 
@@ -15,6 +18,7 @@
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css"/>
 
     <link rel="stylesheet" href="~/css/errorStyle.css"/>
+    <link rel="stylesheet" href="~/css/helpers/scroll.css"/>
     <link rel="stylesheet" href="~/css/helpers/ibg.css"/>
     <link rel="stylesheet" href="~/css/headerFooter.css"/>
 </head>
@@ -30,9 +34,7 @@
         </nav>
     </header>
 
-    <div class="main-wrapper-body">
-        @RenderBody()
-    </div>
+    @RenderBody()
 
     <footer class="main-wrapper-footer">
         <a asp-controller="Main" asp-action="AboutUs">О программе</a>

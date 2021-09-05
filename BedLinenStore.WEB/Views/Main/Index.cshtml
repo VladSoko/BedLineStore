@@ -8,161 +8,199 @@
     <div class="mainPage-mainImage ibg" style="background-image: url('/image/Main/Main.png')"></div>
 
     <div class="mainPage-description">
+        <div class="description-image ibg" style="background-image: url('/image/Main/Description.png')"></div>
 
-        <div class="mainPage-description-image ibg" style="background-image: url('/image/Main/Description.png')"></div>
+        <div class="description-text">
+            <div class="description-text-title">
+                <p class="description-text-title__item">Наши клиенты</p>
+            </div>
 
-        <div class="mainPage-description-text">
+            <div class="description-text-list">
+                <ul class="description-text-list__item">
+                    <li>Получают самые <span>превосходные цены по стране</span></li>
+                    <li>Пользуются <span>бесплатной доставкой</span> в любой город Беларуси</li>
+                    <li>Получают свой заказ всегда <span>вовремя</span> (мы доставляем в течение 2-5 дней с момента получения заказа)</li>
+                    <li>Наслаждаются <span>отличнейшим качеством</span> ткани и пошива</li>
+                    <li>Возвращаются к нам <span>сновам</span></li>
+                </ul>
+            </div>
 
-            <p class="mainPage-description-text__title">Наши клиенты</p>
-
-            <ul class="mainPage-description-text-list">
-                <li>Получают самые <span>превосходные цены по стране</span></li>
-                <li>Пользуются <span>бесплатной доставкой</span> в любой город Беларуси</li>
-                <li>Получают свой заказ всегда <span>вовремя</span> (мы доставляем в течение 2-5 дней с момента получения заказа)</li>
-                <li>Наслаждаются <span>отличнейшим качеством</span> ткани и пошива</li>
-                <li>Возвращаются к нам <span>сновам</span></li>
-            </ul>
-
-            <a class="mainPage-description-text-button" asp-controller="Product" asp-action="List">
-                <span class="mainPage-description-text-button__text">Посмотреть каталог</span>
-            </a>
+            <div class="description-text-button">
+                <a class="description-text-button__item" asp-controller="Product" asp-action="List">
+                    <span class="description-text-button__text">Посмотреть каталог</span>
+                </a>
+            </div>
         </div>
     </div>
 
-    @* <div class="mainPage-aboutUs"> *@
-    @* *@
-    @*     <p class="head">Немного о нас</p> *@
-    @*     <p class="title">Каждый день мы создаем постельное белье, которое наполняет Ваш дом уютом...</p> *@
-    @* *@
-    @*     <div class="images"> *@
-    @* *@
-    @*         <div class="element1"> *@
-    @*             <div class="triangle-right"></div> *@
-    @*             <div class="text"> *@
-    @*                 <p class="head">Собственное производство</p> *@
-    @* *@
-    @*                 <p class="title">Мы сами производим комплекты постельного белья. Именно поэтому мы обращаем огромное внимание на пошив.</p> *@
-    @*                 <p class="title">Обещаем, Вам понравится все: от качества ткани до каждой ниточки в комплекте.</p> *@
-    @*             </div> *@
-    @* *@
-    @*             <img src="~/image/Main/AboutUs/1.png"/> *@
-    @* *@
-    @*         </div> *@
-    @* *@
-    @*         <div class="element2"> *@
-    @*             <div class="triangle-right"></div> *@
-    @*             <div class="text"> *@
-    @*                 <p class="head">Состав: 100% хлопок. Материал: поплин, сатин</p> *@
-    @* *@
-    @*                 <p class="title"> *@
-    @*                     Мы проверили более 100 видов и типов тканей и выбрали, по нашему мнению, самые превосходные. Предлагаем и Вам окунуться в идеальнейшее качество поплина и сатина, которое мы так старательно отбирали... *@
-    @*                 </p> *@
-    @*             </div> *@
-    @* *@
-    @*             <img src="~/image/Main/AboutUs/2.png"/> *@
-    @* *@
-    @*         </div> *@
-    @* *@
-    @*         <div class="element3"> *@
-    @*             <img src="~/image/Main/AboutUs/3.png"/> *@
-    @*             <div class="triangle-right"></div> *@
-    @*             <div class="text"> *@
-    @*                 <p class="head">Широкий ассортимент цветов</p> *@
-    @* *@
-    @*                 <p class="title"> *@
-    @*                     В нашем магазине представлено только однотонное постельное белье поскольку именно глубина единого цвета превалирует при создании уюта в доме. *@
-    @*                 </p> *@
-    @*                 <p class="title"> *@
-    @*                     Выбирайте среди отличного ассортимента цветов, и Ваш дом будет пронизан атмосферой комфорта. *@
-    @*                 </p> *@
-    @*             </div> *@
-    @*         </div> *@
-    @* *@
-    @*         <div class="element4"> *@
-    @*             <img src="~/image/Main/AboutUs/4.png"/> *@
-    @*             <div class="triangle-right"></div> *@
-    @*             <div class="text"> *@
-    @*                 <p class="head">Индивидуальный пошив</p> *@
-    @* *@
-    @*                 <p class="title"> *@
-    @*                     У нас представлен весь спектр размеров постельного белья, а также возможен пошив по индивидуальным меркам. *@
-    @*                 </p> *@
-    @*             </div> *@
-    @*         </div> *@
-    @*     </div> *@
-    @* </div> *@
-    @* *@
-    @* <div class="mainPage-form"> *@
-    @* *@
-    @*     <div class="block"> *@
-    @* *@
-    @*         <p class="head">Индивидуальный пошив</p> *@
-    @*         <p class="title">Оставьте, пожалуйста, заявку на индивидуальный пошив постельного белья, и наш менеджер свяжется с Вами в течение 24 часов с момента подачи заявки</p> *@
-    @* *@
-    @*         <div class="just"> *@
-    @*             <form method="post" class="box"> *@
-    @* *@
-    @*                 <div class="inputEmail"> *@
-    @*                     <label class="myText">Ваш Email</label> *@
-    @*                     <input type="text" name="Email" id="inputEmail-m"/> *@
-    @*                     <label class="error" for="inputEmail-m" style="display: none;"></label> *@
-    @*                 </div> *@
-    @* *@
-    @*                 <div class="inputName"> *@
-    @*                     <label class="myText">Ваше Имя</label> *@
-    @*                     <input type="text" name="Name" id="inputName-m"/> *@
-    @*                     <label class="error" for="inputName-m" style="display: none;"></label> *@
-    @*                 </div> *@
-    @* *@
-    @*                 <div class="inputPhoneNumber"> *@
-    @*                     <label class="myText">Ваш Телефон</label> *@
-    @*                     <input type="text" name="PhoneNumber" id="PhoneNumber-m" data-inputmask-clearincomplete="true"/> *@
-    @*                     <label class="error" for="PhoneNumber-m" style="display: none;"></label> *@
-    @*                 </div> *@
-    @* *@
-    @*                 <button class="button" type="submit"> *@
-    @* *@
-    @*                     <span>Отправить заявку</span> *@
-    @* *@
-    @*                 </button> *@
-    @* *@
-    @* *@
-    @*             </form> *@
-    @* *@
-    @*             <p class="titleAcsees"> *@
-    @*                 Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности *@
-    @*             </p> *@
-    @*         </div> *@
-    @*     </div> *@
-    @* </div> *@
-    @* *@
-    @* <div class="mainPage-footer"> *@
-    @*     <p class="head">Свяжитесь с нами</p> *@
-    @*     <p class="title">+375 29 540 02 25</p> *@
-    @*     <p class="title" style="width: 180px">linesmarket1@gmail.com</p> *@
-    @* *@
-    @*     <div class="wrapper"> *@
-    @* *@
-    @*         <div class="icon instagram"> *@
-    @*             <a href="https://www.instagram.com/lines_market.by"> *@
-    @*                 <i class="fab fa-instagram"></i> *@
-    @*             </a> *@
-    @*         </div> *@
-    @*     </div> *@
-    @* *@
-    @*     <div class="line"></div> *@
-    @* *@
-    @*     <div class="footerImages"> *@
-    @*         <img class="image1" src="~/image/Main/Footer/1.png"/> *@
-    @* *@
-    @*         <img class="image2" src="~/image/Main/Footer/2.png"/> *@
-    @* *@
-    @*         <img class="image3" src="~/image/Main/Footer/4.png"/> *@
-    @*         <img class="image4" src="~/image/Main/Footer/3.png"/> *@
-    @*         <img class="image5" src="~/image/Main/Footer/5.png"/> *@
-    @* *@
-    @*     </div> *@
-    @* </div> *@
+    <div class="mainPage-aboutUs">
+
+        <div class="aboutUs-text">
+            <span class="aboutUs-text__title">Немного о нас</span>
+            <span class="aboutUs-text__description">
+                Каждый день мы создаем постельное белье, которое наполняет Ваш дом уютом...
+            </span>
+        </div>
+
+        <div class="aboutUs-content">
+            <div class="aboutUs-content-block">
+                <div class="triangle triangle-right"></div>
+
+                <div class="aboutUs-content-block-text">
+                    <span class="aboutUs-content-block-text__title">Собственное производство</span>
+
+                    <span class="aboutUs-content-block-text__item">
+                        Мы сами производим комплекты постельного белья. Именно поэтому мы обращаем огромное внимание на пошив.
+                    </span>
+                    <span class="aboutUs-content-block-text__item">
+                        Обещаем, Вам понравится все: от качества ткани до каждой ниточки в комплекте.
+                    </span>
+                </div>
+
+                <div class="aboutUs-content-block-image">
+                    <img class="aboutUs-content-block-image__item" src="~/image/Main/AboutUs/1.png" alt=""/>
+                </div>
+            </div>
+
+            <div class="aboutUs-content-block">
+                <div class="triangle triangle-right"></div>
+                <div class="aboutUs-content-block-text">
+                    <span class="aboutUs-content-block-text__title">
+                        Состав: 100% хлопок. Материал: поплин, сатин
+                    </span>
+
+                    <span class="aboutUs-content-block-text__item">
+                        Мы проверили более 100 видов и типов тканей и выбрали, по нашему мнению, самые превосходные. Предлагаем и Вам окунуться в идеальнейшее качество поплина и сатина, которое мы так старательно отбирали...
+                    </span>
+                </div>
+
+                <div class="aboutUs-content-block-image">
+                    <img class="aboutUs-content-block-image__item" src="~/image/Main/AboutUs/2.png" alt=""/>
+                </div>
+            </div>
+
+            <div class="aboutUs-content-block">
+                <div class="aboutUs-content-block-image">
+                    <img class="aboutUs-content-block-image__item" src="~/image/Main/AboutUs/3.png" alt=""/>
+                </div>
+
+                <div class="triangle triangle-left"></div>
+
+                <div class="aboutUs-content-block-text">
+                    <span class="aboutUs-content-block-text__title">
+                        Широкий ассортимент цветов
+                    </span>
+
+                    <span class="aboutUs-content-block-text__item">
+                        В нашем магазине представлено только однотонное постельное белье поскольку именно глубина единого цвета превалирует при создании уюта в доме.
+                    </span>
+                    <span class="aboutUs-content-block-text__item">
+                        Выбирайте среди отличного ассортимента цветов, и Ваш дом будет пронизан атмосферой комфорта.
+                    </span>
+                </div>
+            </div>
+
+            <div class="aboutUs-content-block">
+                <div class="aboutUs-content-block-image">
+                    <img class="aboutUs-content-block-image__item" src="~/image/Main/AboutUs/4.png" alt=""/>
+                </div>
+
+                <div class="triangle triangle-left"></div>
+
+                <div class="aboutUs-content-block-text">
+                    <span class="aboutUs-content-block-text__title">
+                        Индивидуальный пошив
+                    </span>
+
+                    <span class="aboutUs-content-block-text__item">
+                        У нас представлен весь спектр размеров постельного белья, а также возможен пошив по индивидуальным меркам.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainPage-form">
+        <div class="form">
+            <div class="form-text">
+                <span class="form-text__title">
+                    Индивидуальный пошив
+                </span>
+                <span class="form-text__description">
+                    Оставьте, пожалуйста, заявку на индивидуальный пошив постельного белья, и наш менеджер свяжется с Вами в течение 24 часов с момента подачи заявки
+                </span>
+            </div>
+
+            <div class="form-content">
+                <form method="post" class="form-content__item box">
+                    <div class="form-content-email form-item">
+                        <label class="form-content-email__text input-label">Ваш Email</label>
+                        <input class="form-content-email__input input" type="text" name="Email" id="email"/>
+                        <label class="error" for="email" style="display: none;"></label>
+                    </div>
+
+                    <div class="form-content-name form-item">
+                        <label class="form-content-name__text input-label">Ваше Имя</label>
+                        <input class="form-content-name__input input" type="text" name="Name" id="name"/>
+                        <label class="error" for="name" style="display: none;"></label>
+                    </div>
+
+                    <div class="form-content-phoneNumber form-item">
+                        <label class="form-content-phoneNumber__text input-label">Ваш Телефон</label>
+                        <input class="form-content-phoneNumber__input input"
+                               type="text"
+                               name="phoneNumber"
+                               id="phoneNumber"
+                               data-inputmask-clearincomplete="true"/>
+                        <label class="error" for="phoneNumber" style="display: none;"></label>
+                    </div>
+
+                    <button class="form-content-button" type="submit">
+                        <span class="form-content-button__text">
+                            Отправить заявку
+                        </span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="form-footer">
+                <span class="form-footer__text">
+                    Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainPage-footer">
+        <div class="footer-text">
+            <span class="footer-text__title">Свяжитесь с нами</span>
+            <span class="footer-text__phone">+375 29 540 02 25</span>
+            <span class="footer-text__email">
+                linesmarket1@gmail.com
+            </span>
+        </div>
+
+        <div class="footer-link">
+            <div class="footer-link-icon">
+                <a class="footer-link-icon__item" href="https://www.instagram.com/lines_market.by">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-line"></div>
+
+
+        <div class="footer-images-grid">
+            <img class="footer-images-grid__item" src="~/image/Main/Footer/1.png" alt=""/>
+            <img class="footer-images-grid__item" src="~/image/Main/Footer/2.png" alt=""/>
+            <img class="footer-images-grid__item" src="~/image/Main/Footer/3.png" alt=""/>
+            <img class="footer-images-grid__item" src="~/image/Main/Footer/4.png" alt=""/>
+
+            <img class="footer-images-grid__item" src="~/image/Main/Footer/5.png" alt=""/>
+        </div>
+
+    </div>
 </div>
 
 <script type="text/javascript" src="~/js/main/src.js"></script>
