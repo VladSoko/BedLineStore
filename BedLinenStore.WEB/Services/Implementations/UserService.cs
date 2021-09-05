@@ -23,10 +23,27 @@ namespace BedLinenStore.WEB.Services.Implementations
                 .FirstOrDefault(item => item.Email == email);
         }
 
-        public void Create(User user)
+        public User GetById(int id)
+        {
+            return context.Users.FirstOrDefault(user => user.Id == id);
+        }
+
+        public User Create(User user)
         {
             context.Users.Add(user);
             context.SaveChanges();
+
+            return context.Users.FirstOrDefault(item => item.Email == user.Email);
+        }
+
+        public bool ConfirmEmail(User user, string email)
+        {
+            if (user.Email != email) return false;
+            
+            user.ConfirmedEmail = true;
+            context.SaveChanges();
+            return true;
+
         }
     }
 }

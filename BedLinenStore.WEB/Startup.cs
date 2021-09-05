@@ -1,5 +1,6 @@
 using BedLinenStore.WEB.Data;
 using BedLinenStore.WEB.DependencyInjection;
+using BedLinenStore.WEB.Models.Entities;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,6 +25,7 @@ namespace BedLinenStore.WEB
         {
             services.Build();
             services.AddControllersWithViews();
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(

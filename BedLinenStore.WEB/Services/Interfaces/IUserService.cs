@@ -6,6 +6,10 @@ namespace BedLinenStore.WEB.Services.Interfaces
     {
         User GetByEmail(string email);
 
-        void Create(User user);
+        User GetById(int id);
+
+        User Create(User user);
+
+        bool ConfirmEmail(User user, string email);
     }
 }

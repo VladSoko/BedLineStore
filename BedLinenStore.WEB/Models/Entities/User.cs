@@ -13,5 +13,7 @@ namespace BedLinenStore.WEB.Models.Entities
         public Role Role { get; set; }
 
         public CartLine CartLine { get; set; }
+        
+        public bool ConfirmedEmail { get; set; }
     }
 }

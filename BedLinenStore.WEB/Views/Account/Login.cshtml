@@ -1,6 +1,12 @@
 ﻿@model LoginModel
 
+
 <link rel="stylesheet" href="~/css/Login/mainStyle.css"/>
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog modal-dialog-centered">
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
@@ -8,9 +14,20 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
 
-                    <h5 class="card-title text-center">Авторизация</h5>
+         
+                            <h5 class="card-title text-center">Авторизация</h5>
+          
+                    
 
-                    <div class="validation mainError" asp-validation-summary="ModelOnly"></div>
+                    @* <div class="validation mainError" asp-validation-summary="ModelOnly"></div> *@
+                    <div class="validation-summary-errors mainError">
+                        <ul>
+                            @foreach (var error in ViewData.ModelState.Where(s => s.Value.Errors.Count != 0).SelectMany(s => s.Value.Errors))
+                            {
+                                <li>@Html.Raw(error.ErrorMessage)</li>
+                            }
+                        </ul>
+                    </div>
 
                     <form class="form-signin box" method="post">
 

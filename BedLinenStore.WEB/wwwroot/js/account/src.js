@@ -1,4 +1,36 @@
-﻿jQuery.validator.addMethod(
+﻿
+
+$(".sendEmail").bind("click", function(e) {
+    e.preventDefault(); // Отменяет стандартное действие ссылки
+
+    $.ajax({
+        "type": "GET",
+        "url": $(this).attr('href'),
+        "dataType": "html",
+        "success": function (data) {
+            $('#dialogContent').html(data);
+            $('#modDialog').modal('show');
+        }
+    });
+})
+
+$(".submit").on("click", function(e) {
+    e.preventDefault();
+    
+    $.ajax({
+        url: "/Account/Register",
+        method: 'post',
+
+        data: $(".box").serialize(),
+        dataType: 'html',
+        success: function (data) {
+            $('#dialogContent').html(data);
+            $('#modDialog').modal('show');
+        }
+    });
+})
+
+jQuery.validator.addMethod(
     "regex",
     function (value, element, regexp) {
         if (regexp.constructor != RegExp)
