@@ -122,11 +122,96 @@ namespace BedLinenStore.WEB.Controllers
             return PartialView("SendEmailSuccess");
         }
 
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ResetPassword(LoginModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = userService.GetByEmail(model.Email);
+            if (user == null)
+            {
+                // Don't reveal that the user does not exist
+                ModelState.AddModelError("", "Пользователь с такой почтой не существует");
+                return View(model);
+            }
+
+            var result = userService.ResetPassword(user, model.Password);
+            if (result)
+            {
+                return RedirectToAction("ResetPasswordConfirmation");
+            }
+
+            ModelState.AddModelError("", "Что-то пошло не так");
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
+        
+        [HttpGet]
+        public IActionResult ResetPassword(string email)
+        {
+            if (email == null)
+            {
+                return BadRequest("A code must be supplied for password reset.");
+            }
+            else
+            {
+                LoginModel loginModel = new LoginModel()
+                {
+                    Email = email
+                };
+                return View(loginModel);
+            }
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = userService.GetByEmail(email);
+
+                if (user == null)
+                {
+                    ModelState.AddModelError("", "Пользователь с этим логином не существует");
+                }
+                else
+                {
+                    var callbackUrl = Url.Action(
+                        "ResetPassword",
+                        "Account",
+                        values: new {email = user.Email },
+                        protocol: Request.Scheme);
+
+                    await emailSender.SendEmailAsync(
+                        email,
+                        "Reset Password",
+                        $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    return PartialView("SendEmailSuccess");
+                }
+            }
+
+            return View(email);
+        }
+
         public ActionResult ConfirmEmail(string email, int userId)
         {
             if (email == null)
             {
-                return RedirectToPage("/Index");
+                return RedirectToAction("Index", "Main");
             }
 
             var user = userService.GetById(userId);

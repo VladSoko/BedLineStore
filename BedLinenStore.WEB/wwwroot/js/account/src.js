@@ -14,6 +14,23 @@ $(".sendEmail").bind("click", function(e) {
     });
 })
 
+
+$(".forgotPassword").on("click", function(e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: "/Account/ForgotPassword",
+        method: 'post',
+
+        data: $(".box").serialize(),
+        dataType: 'html',
+        success: function (data) {
+            $('#dialogContent').html(data);
+            $('#modDialog').modal('show');
+        }
+    });
+})
+
 $(".submit").on("click", function(e) {
     e.preventDefault();
     

@@ -95,3 +95,21 @@
     font-size: 12px;
     color: #777;
 }
+
+.footer-forgotPassword{
+    text-align: center;
+    margin: 10px 0 0 0;
+    font-size: 14px;
+}
+
+.footer-forgotPassword__text{
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
+
+.footer-forgotPassword__text:hover{
+    color: #999999;
+}
+
+

@@ -11,5 +11,7 @@ namespace BedLinenStore.WEB.Services.Interfaces
         User Create(User user);
 
         bool ConfirmEmail(User user, string email);
+
+        bool ResetPassword(User user, string password);
     }
 }

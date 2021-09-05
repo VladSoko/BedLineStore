@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using BedLinenStore.WEB.Data;
 using BedLinenStore.WEB.Models.Entities;
@@ -44,6 +45,20 @@ namespace BedLinenStore.WEB.Services.Implementations
             context.SaveChanges();
             return true;
 
+        }
+
+        public bool ResetPassword(User user, string password)
+        {
+            try
+            {
+                user.Password = password;
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
