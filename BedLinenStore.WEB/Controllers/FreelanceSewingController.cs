@@ -1,7 +1,5 @@
-﻿using BedLinenStore.WEB.Data;
+﻿using BedLinenStore.WEB.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using BedLinenStore.WEB.Services.Interfaces;
 
 namespace BedLinenStore.WEB.Controllers
 {

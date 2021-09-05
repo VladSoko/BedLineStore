@@ -14,7 +14,7 @@ namespace BedLinenStore.WEB.Services.Implementations
         {
             this.context = context;
         }
-        
+
         public IEnumerable<FreelanceSewing> GetAll()
         {
             return context.FreelanceSewings.ToList();

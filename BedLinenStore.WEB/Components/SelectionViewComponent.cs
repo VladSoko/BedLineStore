@@ -1,25 +1,24 @@
-﻿using BedLinenStore.WEB.Data;
-using BedLinenStore.WEB.Models;
+﻿using BedLinenStore.WEB.Models;
+using BedLinenStore.WEB.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace BedLinenStore.WEB.Components
 {
     public class SelectionViewComponent : ViewComponent
     {
-        private readonly ApplicationDbContext context;
+        private readonly ICategoryService categoryService;
 
-        public SelectionViewComponent(ApplicationDbContext context)
+        public SelectionViewComponent(ICategoryService categoryService)
         {
-            this.context = context;
+            this.categoryService = categoryService;
         }
 
         public IViewComponentResult Invoke(int id)
         {
-            CategoryViewModel categoryViewModel = new CategoryViewModel
+            var categoryViewModel = new CategoryViewModel
             {
-                Categories = context.Categories.ToList(),
-                BedLineId = id,
+                Categories = categoryService.GetAll(),
+                BedLineId = id
             };
             return View(categoryViewModel);
         }

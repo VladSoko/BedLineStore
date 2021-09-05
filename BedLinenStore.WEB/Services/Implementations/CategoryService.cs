@@ -1,7 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
 using BedLinenStore.WEB.Data;
 using BedLinenStore.WEB.Models.Entities;
 using BedLinenStore.WEB.Services.Interfaces;
-using System.Linq;
 
 namespace BedLinenStore.WEB.Services.Implementations
 {
@@ -13,11 +14,16 @@ namespace BedLinenStore.WEB.Services.Implementations
         {
             this.context = context;
         }
-        
+
         public Category GetById(int id)
         {
             return context.Categories
                 .FirstOrDefault(item => item.Id == id);
+        }
+
+        public IEnumerable<Category> GetAll()
+        {
+            return context.Categories.ToList();
         }
     }
 }

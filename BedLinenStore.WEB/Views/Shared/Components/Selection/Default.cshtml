@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="~/css/components/selection.css"/>
 
-<input type="hidden" id="bedLinenIdInput" value="@Model.Categories.First().Price" />
+<input type="hidden" id="bedLinenIdInput" value="@Model.Categories.First().Price"/>
 <select class="product-grid__select" id="selectCategory@(Model.BedLineId)" onchange="change(@Model.BedLineId)">
     @foreach (var item in Model.Categories)
     {

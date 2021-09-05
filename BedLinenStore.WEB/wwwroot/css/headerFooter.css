@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -46,11 +46,11 @@ body {
     align-items: center;
 }
 
-.header-items{
+.header-items {
     display: flex;
 }
 
-.header-items > a{
+.header-items > a {
     margin: 0 20px 0 0;
 }
 

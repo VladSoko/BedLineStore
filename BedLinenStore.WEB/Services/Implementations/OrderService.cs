@@ -9,13 +9,19 @@ namespace BedLinenStore.WEB.Services.Implementations
 {
     public class OrderService : IOrderService
     {
+        private readonly ICartLineService cartLineService;
         private readonly ApplicationDbContext context;
+        private readonly IUserService userService;
 
-        public OrderService(ApplicationDbContext context)
+        public OrderService(ApplicationDbContext context,
+            IUserService userService,
+            ICartLineService cartLineService)
         {
             this.context = context;
+            this.userService = userService;
+            this.cartLineService = cartLineService;
         }
-        
+
         public IEnumerable<Order> GetAll()
         {
             return context.Orders
@@ -42,9 +48,15 @@ namespace BedLinenStore.WEB.Services.Implementations
                 .FirstOrDefault(item => item.Id == id);
         }
 
-        public void Create(Order order)
+        public void Checkout(Order order)
         {
             context.Orders.Add(order);
+
+            var user = userService.GetByEmail(order.Email);
+            var cartLine = cartLineService.GetByEmail(order.Email);
+            user.CartLine = new CartLine();
+            cartLineService.Delete(cartLine);
+
             context.SaveChanges();
         }
     }

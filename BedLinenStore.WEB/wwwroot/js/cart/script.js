@@ -59,7 +59,7 @@ $(".box").validate({
             digits: "Только цифры",
             minlength: "Минимальная длина 4",
         },
-       
+
     },
     submitHandler: function (e) {
         myfunction();

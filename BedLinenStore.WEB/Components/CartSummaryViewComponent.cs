@@ -1,31 +1,24 @@
-﻿using BedLinenStore.WEB.Data;
+﻿using System.Linq;
+using BedLinenStore.WEB.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace BedLinenStore.WEB.Components
 {
     public class CartSummaryViewComponent : ViewComponent
     {
-        private readonly ApplicationDbContext context;
+        private readonly ICartLineService cartLineService;
 
-        public CartSummaryViewComponent(ApplicationDbContext context)
+        public CartSummaryViewComponent(ICartLineService cartLineService)
         {
-            this.context = context;
+            this.cartLineService = cartLineService;
         }
 
         public IViewComponentResult Invoke()
         {
-            var cartLines = context.CartLines.Include(item => item.User).Include(b => b.Products).ToList();
-            var userCartLine = cartLines.FirstOrDefault(a => a.User.Email == User.Identity.Name);
+            var userCartLine = cartLineService.GetByEmail(User.Identity.Name);
             if (userCartLine == null)
-            {
                 return View(0);
-            }
-            else
-            {
-                return View(userCartLine.Products.Count());
-            }            
+            return View(userCartLine.Products.Count());
         }
     }
 }

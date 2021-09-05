@@ -11,5 +11,7 @@ namespace BedLinenStore.WEB.Services.Interfaces
         void AddProduct(CartLine cartLine, Product product);
 
         void DeleteProduct(CartLine cartLine, int productId);
+
+        void Delete(CartLine cartLine);
     }
 }

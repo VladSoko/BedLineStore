@@ -1,10 +1,7 @@
-﻿using BedLinenStore.WEB.Data;
-using BedLinenStore.WEB.Models.Entities;
+﻿using BedLinenStore.WEB.Models.Entities;
+using BedLinenStore.WEB.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using BedLinenStore.WEB.Services.Interfaces;
 
 namespace BedLinenStore.WEB.Controllers
 {
@@ -28,21 +25,21 @@ namespace BedLinenStore.WEB.Controllers
 
         public IActionResult Delete(int productId)
         {
-            CartLine cartLine = cartLineService.GetByEmail(User.Identity.Name);
+            var cartLine = cartLineService.GetByEmail(User.Identity.Name);
             cartLineService.DeleteProduct(cartLine, productId);
-            
+
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Checkout(Order order)
         {
-            CartLine cartLine = cartLineService.GetByEmail(User.Identity.Name);
+            var cartLine = cartLineService.GetByEmail(User.Identity.Name);
 
             order.Products = cartLine.Products;
             order.Email = User.Identity.Name;
-            
-            orderService.Create(order);
+
+            orderService.Checkout(order);
 
             return PartialView("OrderSuccessfully");
         }

@@ -1,5 +1,4 @@
-﻿
-$(".box").validate({
+﻿$(".box").validate({
     rules: {
         Email: {
             required: true,

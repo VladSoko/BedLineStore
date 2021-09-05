@@ -6,12 +6,12 @@
     box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.25);
 }
 
-    .viewProduct_main img {
-        width: 135px;
-        height: 136px;
-        margin-left: 10px;
-        margin-top: 10px;
-    }
+.viewProduct_main img {
+    width: 135px;
+    height: 136px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
 
 .viewProduct_main_text {
     font-family: Times New Roman;
@@ -25,7 +25,7 @@
     font-weight: bold;
 }
 
-.viewProduct_main_text-price{
+.viewProduct_main_text-price {
 
 }
 

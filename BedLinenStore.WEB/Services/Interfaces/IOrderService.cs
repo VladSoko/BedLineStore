@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using BedLinenStore.WEB.Models.Entities;
 
@@ -12,6 +11,6 @@ namespace BedLinenStore.WEB.Services.Interfaces
 
         Order GetById(int id);
 
-        void Create(Order order);
+        void Checkout(Order order);
     }
 }

@@ -8,5 +8,4 @@ namespace BedLinenStore.WEB.Services.Interfaces
 
         void Create(User user);
     }
-
 }

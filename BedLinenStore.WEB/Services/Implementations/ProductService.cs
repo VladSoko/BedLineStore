@@ -14,7 +14,7 @@ namespace BedLinenStore.WEB.Services.Implementations
         {
             this.context = context;
         }
-        
+
         public Product GetByMainInfoAndCategory(int mainInfoId, int categoryId)
         {
             return context.Products

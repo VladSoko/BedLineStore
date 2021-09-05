@@ -14,7 +14,7 @@ namespace BedLinenStore.WEB.Services.Implementations
         {
             this.context = context;
         }
-        
+
         public CartLine GetByEmail(string email)
         {
             return context.CartLines
@@ -38,8 +38,14 @@ namespace BedLinenStore.WEB.Services.Implementations
 
         public void DeleteProduct(CartLine cartLine, int productId)
         {
-            Product product = context.Products.FirstOrDefault(item => item.Id == productId);
+            var product = context.Products.FirstOrDefault(item => item.Id == productId);
             cartLine.Products.Remove(product);
+            context.SaveChanges();
+        }
+
+        public void Delete(CartLine cartLine)
+        {
+            context.CartLines.Remove(cartLine);
             context.SaveChanges();
         }
     }

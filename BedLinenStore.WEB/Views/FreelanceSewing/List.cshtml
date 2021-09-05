@@ -21,32 +21,34 @@
 
                 <table class="table table-striped custom-table">
                     <thead>
-                        <tr>
+                    <tr>
 
-                            <th scope="col">Номер</th>
-                            <th scope="col">Имя</th>
-                            <th scope="col">Почта</th>
-                            <th scope="col">Номер телефона</th>
-                            <th scope="col"></th>
-                        </tr>
+                        <th scope="col">Номер</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Почта</th>
+                        <th scope="col">Номер телефона</th>
+                        <th scope="col"></th>
+                    </tr>
                     </thead>
                     <tbody>
 
 
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @item.Id
-                                </td>
-                                <td>@item.Name</td>
-                                <td>
-                                    @item.Email
-                                </td>
-                                <td>@item.PhoneNumber</td>
-                                <td><a asp-action="Delete" asp-route-id="@item.Id" class="more delete">Удалить</a></td>
-                            </tr>
-                        }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.Id
+                            </td>
+                            <td>@item.Name</td>
+                            <td>
+                                @item.Email
+                            </td>
+                            <td>@item.PhoneNumber</td>
+                            <td>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="more delete">Удалить</a>
+                            </td>
+                        </tr>
+                    }
 
                     </tbody>
                 </table>

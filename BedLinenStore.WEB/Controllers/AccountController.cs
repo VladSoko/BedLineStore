@@ -1,15 +1,13 @@
-﻿using BedLinenStore.WEB.Data;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using BedLinenStore.WEB.Enums;
 using BedLinenStore.WEB.Models;
 using BedLinenStore.WEB.Models.Entities;
+using BedLinenStore.WEB.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using BedLinenStore.WEB.Services.Interfaces;
 
 namespace BedLinenStore.WEB.Controllers
 {
@@ -34,18 +32,17 @@ namespace BedLinenStore.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = userService.GetByEmail(model.Email);
+                var user = userService.GetByEmail(model.Email);
 
                 if (user != null && user.Password == model.Password)
-                {                    
+                {
                     await Authenticate(user);
                     return RedirectToAction("Index", "Main");
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Неверный логин и(или) пароль");
-                }
+
+                ModelState.AddModelError("", "Неверный логин и(или) пароль");
             }
+
             return View(model);
         }
 
@@ -63,25 +60,23 @@ namespace BedLinenStore.WEB.Controllers
             {
                 if (userService.GetByEmail(model.Email) == null)
                 {
-                    User user = new User
+                    var user = new User
                     {
                         Email = model.Email,
                         Password = model.Password,
                         Role = Role.AuthorizedUser,
-                        CartLine = new CartLine(),
+                        CartLine = new CartLine()
                     };
-                    
+
                     userService.Create(user);
                     await Authenticate(user);
 
                     return RedirectToAction("Index", "Main");
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Пользователь с этим логином уже существует");
-                }
 
+                ModelState.AddModelError("", "Пользователь с этим логином уже существует");
             }
+
             return View(model);
         }
 
@@ -93,7 +88,7 @@ namespace BedLinenStore.WEB.Controllers
                 new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.ToString())
             };
 
-            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
+            var id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
                 ClaimsIdentity.DefaultRoleClaimType);
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));

@@ -1,5 +1,5 @@
-﻿using BedLinenStore.WEB.Models.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using BedLinenStore.WEB.Models.Entities;
 
 namespace BedLinenStore.WEB.Models
 {
