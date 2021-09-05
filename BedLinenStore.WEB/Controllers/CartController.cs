@@ -4,56 +4,45 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using BedLinenStore.WEB.Services.Interfaces;
 
 namespace BedLinenStore.WEB.Controllers
 {
     [Authorize(Roles = "AuthorizedUser")]
     public class CartController : Controller
     {
-        private readonly ApplicationDbContext context;
+        private readonly ICartLineService cartLineService;
+        private readonly IOrderService orderService;
 
-        public CartController(ApplicationDbContext context)
+        public CartController(ICartLineService cartLineService,
+            IOrderService orderService)
         {
-            this.context = context;
+            this.cartLineService = cartLineService;
+            this.orderService = orderService;
         }
 
         public IActionResult Index()
         {
-            CartLine cartLine = context.CartLines
-                .Include(b => b.Products)
-                .ThenInclude(a => a.Category)
-                .Include(a => a.Products)
-                .ThenInclude(a => a.MainInfo)
-                .FirstOrDefault(item => item.User.Email == User.Identity.Name);
-
-            return View(cartLine);
+            return View(cartLineService.GetByEmail(User.Identity.Name));
         }
 
         public IActionResult Delete(int productId)
         {
-            Product product = context.Products.FirstOrDefault(item => item.Id == productId);
-            CartLine cartLine = context.CartLines
-                .Include(b => b.Products)
-                .FirstOrDefault(item => item.User.Email == User.Identity.Name);
-
-            cartLine?.Products.Remove(product);
-            context.SaveChanges();
-
+            CartLine cartLine = cartLineService.GetByEmail(User.Identity.Name);
+            cartLineService.DeleteProduct(cartLine, productId);
+            
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult Checkout(Order order, int cartLineId)
+        public IActionResult Checkout(Order order)
         {
-            CartLine cartLine = context.CartLines
-                .Include(b => b.Products)
-                .FirstOrDefault(item => item.Id == cartLineId);
+            CartLine cartLine = cartLineService.GetByEmail(User.Identity.Name);
 
-            order.Products = cartLine?.Products;
-
+            order.Products = cartLine.Products;
             order.Email = User.Identity.Name;
-            context.Orders.Add(order);
-            context.SaveChanges();
+            
+            orderService.Create(order);
 
             return PartialView("OrderSuccessfully");
         }

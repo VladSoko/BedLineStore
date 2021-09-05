@@ -9,16 +9,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BedLinenStore.WEB.Services.Interfaces;
 
 namespace BedLinenStore.WEB.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly ApplicationDbContext context;
+        private readonly IUserService userService;
 
-        public AccountController(ApplicationDbContext context)
+        public AccountController(IUserService userService)
         {
-            this.context = context;
+            this.userService = userService;
         }
 
         [HttpGet]
@@ -33,7 +34,7 @@ namespace BedLinenStore.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = context.Users.FirstOrDefault(item => item.Email == model.Email);
+                User user = userService.GetByEmail(model.Email);
 
                 if (user != null && user.Password == model.Password)
                 {                    
@@ -60,24 +61,17 @@ namespace BedLinenStore.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (context.Users.FirstOrDefault(item => item.Email == model.Email) == null)
+                if (userService.GetByEmail(model.Email) == null)
                 {
                     User user = new User
                     {
                         Email = model.Email,
                         Password = model.Password,
                         Role = Role.AuthorizedUser,
+                        CartLine = new CartLine(),
                     };
-
-                    CartLine newCartLine = new CartLine
-                    {
-                        User = user
-                    };
-
-                    context.CartLines.Add(newCartLine);
-                    context.Users.Add(user);
-                    context.SaveChanges();
-
+                    
+                    userService.Create(user);
                     await Authenticate(user);
 
                     return RedirectToAction("Index", "Main");

@@ -1,28 +1,27 @@
 ﻿using BedLinenStore.WEB.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using BedLinenStore.WEB.Services.Interfaces;
 
 namespace BedLinenStore.WEB.Controllers
 {
     public class FreelanceSewingController : Controller
     {
-        private readonly ApplicationDbContext context;
+        private readonly IFreelanceSewingService freelanceSewingService;
 
-        public FreelanceSewingController(ApplicationDbContext context)
+        public FreelanceSewingController(IFreelanceSewingService freelanceSewingService)
         {
-            this.context = context;
+            this.freelanceSewingService = freelanceSewingService;
         }
 
         public IActionResult List()
         {
-            return View(context.FreelanceSewings.ToList());
+            return View(freelanceSewingService.GetAll());
         }
 
         public IActionResult Delete(int id)
         {
-            var freelanceSewing = context.FreelanceSewings.FirstOrDefault(item => item.Id == id);
-            context.FreelanceSewings.Remove(freelanceSewing);
-            context.SaveChanges();
+            freelanceSewingService.DeleteById(id);
             return RedirectToAction("List");
         }
     }

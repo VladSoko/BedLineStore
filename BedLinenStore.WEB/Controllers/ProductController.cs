@@ -4,53 +4,47 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using BedLinenStore.WEB.Services.Interfaces;
 
 namespace BedLinenStore.WEB.Controllers
 {
     [Authorize(Roles = "Admin, AuthorizedUser")]
     public class ProductController : Controller
     {
-        private readonly ApplicationDbContext context;
+        private readonly IMainInfoService mainInfoService;
+        private readonly IUserService userService;
+        private readonly ICartLineService cartLineService;
+        private readonly IProductService productService;
 
-        public ProductController(ApplicationDbContext context)
+        public ProductController(
+            IMainInfoService mainInfoService,
+            IUserService userService,
+            ICartLineService cartLineService,
+            IProductService productService)
         {
-            this.context = context;
+            this.mainInfoService = mainInfoService;
+            this.userService = userService;
+            this.cartLineService = cartLineService;
+            this.productService = productService;
         }
 
         [AllowAnonymous]
         public IActionResult List()
         {
-            return View(context.MainInfos.ToList());
+            return View(mainInfoService.GetAll());
         }
 
         public IActionResult AddToCart(int mainInfoId, int categoryId)
         {
-            MainInfo mainInfo = context.MainInfos.FirstOrDefault(item => item.Id == mainInfoId);
-            Category category = context.Categories.First(item => item.Id == categoryId);
+            var product = productService.GetByMainInfoAndCategory(mainInfoId, categoryId);
+            User user = userService.GetByEmail(User.Identity.Name);
 
-            User user = context.Users.FirstOrDefault(item => item.Email == User.Identity.Name);
-            CartLine cartLine = context.CartLines
-                .Include(b => b.Products)
-                .FirstOrDefault(item => item.User.Email == user.Email);
-
-
-            Product product = new Product
-            {
-                MainInfo = mainInfo,
-                Category = context.Categories.First(item => item.Id == categoryId),
-            };
-
-            Product product1 =
-                cartLine.Products.FirstOrDefault(item =>
-                    item.CategoryId == categoryId && item.MainInfoId == mainInfoId);
-            if (product1 != null)
+            if (cartLineService.IsProductExist(user.CartLine, product.Id))
             {
                 return PartialView("AddToCartError");
             }
 
-            cartLine.Products.Add(product);
-
-            context.SaveChanges();
+            cartLineService.AddProduct(user.CartLine, product);
             return PartialView("AddToCartSuccessfully", product);
         }
     }

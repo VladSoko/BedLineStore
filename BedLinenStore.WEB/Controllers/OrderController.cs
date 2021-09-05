@@ -3,44 +3,34 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using BedLinenStore.WEB.Services.Interfaces;
 
 namespace BedLinenStore.WEB.Controllers
 {
     [Authorize(Roles = "AuthorizedUser, Admin")]
     public class OrderController : Controller
     {
-        private readonly ApplicationDbContext context;
+        private readonly IOrderService orderService;
 
-        public OrderController(ApplicationDbContext context)
+        public OrderController(IOrderService orderService)
         {
-            this.context = context;
+            this.orderService = orderService;
         }
 
         public IActionResult List()
         {
-            var orders = context.Orders
-                .Include(item => item.Products)
-                .ThenInclude(a => a.Category)
-                .Include(item => item.Products).ThenInclude(a => a.MainInfo);
-            return View(orders);
+            return View(orderService.GetAll());
         }
 
         public IActionResult Delete(int id)
         {
-            var order = context.Orders.FirstOrDefault(item => item.Id == id);
-            context.Orders.Remove(order);
-            context.SaveChanges();
+            orderService.DeleteById(id);
             return RedirectToAction("List");
         }
 
         public IActionResult Info(int id)
         {
-            return PartialView(context.Orders
-                .Include(item => item.Products)
-                .ThenInclude(a => a.Category)
-                .Include(item => item.Products)
-                .ThenInclude(a => a.MainInfo)
-                .FirstOrDefault(item => item.Id == id));
+            return PartialView(orderService.GetById(id));
         }
     }
 }

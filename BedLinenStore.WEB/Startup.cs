@@ -1,4 +1,5 @@
 using BedLinenStore.WEB.Data;
+using BedLinenStore.WEB.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,6 +21,7 @@ namespace BedLinenStore.WEB
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Build();
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options =>

@@ -1,4 +1,5 @@
-﻿using BedLinenStore.WEB.Enums;
+﻿using System.Collections.Generic;
+using BedLinenStore.WEB.Enums;
 using BedLinenStore.WEB.Models.Entities;
 using System.Linq;
 
@@ -75,6 +76,21 @@ namespace BedLinenStore.WEB.Data
             };
 
             context.Categories.AddRange(categories);
+
+            var products = new List<Product>();
+            foreach (var mainInfo in mainInfos)
+            {
+                foreach (var category in categories)
+                {
+                    products.Add(new Product()
+                    {
+                        Category = category,
+                        MainInfo = mainInfo
+                    });
+                }
+            }
+
+            context.Products.AddRange(products);
 
             var users = new[]
             {
