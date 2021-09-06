@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using BedLinenStore.WEB.Data;
@@ -58,6 +59,13 @@ namespace BedLinenStore.WEB.Services.Implementations
             cartLineService.Delete(cartLine);
 
             context.SaveChanges();
+        }
+
+        public IEnumerable<Order> GetAllByPeriod(DateTime from, DateTime to)
+        {
+            return context.Orders
+                .Where(order => order.CreatedDate >= from && order.CreatedDate <= to)
+                .ToList();
         }
     }
 }

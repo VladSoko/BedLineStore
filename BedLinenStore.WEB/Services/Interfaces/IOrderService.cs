@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using BedLinenStore.WEB.Models.Entities;
 
@@ -12,5 +13,7 @@ namespace BedLinenStore.WEB.Services.Interfaces
         Order GetById(int id);
 
         void Checkout(Order order);
+
+        IEnumerable<Order> GetAllByPeriod(DateTime from, DateTime to);
     }
 }

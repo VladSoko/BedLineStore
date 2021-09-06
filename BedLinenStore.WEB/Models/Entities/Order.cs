@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BedLinenStore.WEB.Models.Entities
 {
@@ -19,5 +20,7 @@ namespace BedLinenStore.WEB.Models.Entities
         public string Zip { get; set; }
 
         public string Email { get; set; }
+        
+        public DateTime CreatedDate { get; set; }
     }
 }

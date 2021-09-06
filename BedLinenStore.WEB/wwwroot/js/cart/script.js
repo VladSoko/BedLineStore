@@ -1,4 +1,16 @@
-﻿function myfunction() {
+﻿function zeroPadded(val) {
+    if (val >= 10)
+        return val;
+    else
+        return '0' + val;
+}
+
+function myfunction() {
+    let date = new Date();
+    $("input[name='CreatedDate']").val(date.getFullYear()+"-"
+        +zeroPadded(date.getMonth() + 1)+"-"
+        +zeroPadded(date.getDate()));
+    
     $.ajax({
         url: "Cart/Checkout",
         method: 'post',
