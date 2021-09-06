@@ -64,6 +64,10 @@ namespace BedLinenStore.WEB.Services.Implementations
         public IEnumerable<Order> GetAllByPeriod(DateTime from, DateTime to)
         {
             return context.Orders
+                .Include(item => item.Products)
+                .ThenInclude(a => a.Category)
+                .Include(item => item.Products)
+                .ThenInclude(a => a.MainInfo)
                 .Where(order => order.CreatedDate >= from && order.CreatedDate <= to)
                 .ToList();
         }

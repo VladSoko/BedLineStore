@@ -18,6 +18,7 @@ namespace BedLinenStore.WEB.DependencyInjection
             services.AddScoped<IOrderService, OrderService>();
             
             services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddSingleton<IExcelService, ExcelService>();
         }
     }
 }

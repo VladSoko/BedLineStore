@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using BedLinenStore.WEB.Models;
 using BedLinenStore.WEB.Services.Interfaces;
 using ClosedXML.Excel;
@@ -12,10 +13,13 @@ namespace BedLinenStore.WEB.Controllers
     public class OrderController : Controller
     {
         private readonly IOrderService orderService;
+        private readonly IExcelService excelService;
 
-        public OrderController(IOrderService orderService)
+        public OrderController(IOrderService orderService,
+            IExcelService excelService)
         {
             this.orderService = orderService;
+            this.excelService = excelService;
         }
 
         public IActionResult List()
@@ -34,10 +38,10 @@ namespace BedLinenStore.WEB.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DownloadOrders(DownloadOrderViewModel model)
+        public async Task<IActionResult> DownloadOrders(DownloadOrderViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -47,37 +51,14 @@ namespace BedLinenStore.WEB.Controllers
                 {
                     ModelState.AddModelError("", "За такой период нет заказов");
                 }
-
-                using (XLWorkbook workbook = new XLWorkbook(XLEventTracking.Disabled))
+                else
                 {
-                    var worksheet = workbook.Worksheets.Add("Orders");
-
-                    worksheet.Cell("A1").Value = "Номер заказа";
-                    worksheet.Cell("B1").Value = "Дата заказа";
-                    worksheet.Cell("C1").Value = "Данные о заказе";
-                    worksheet.Cell("D1").Value = "ФИО";
-                    worksheet.Cell("E1").Value = "Номер телефона";
-                    worksheet.Cell("F1").Value = "Адресс доставки";
-                    worksheet.Row(1).Style.Font.Bold = true;
-
-                    // //нумерация строк/столбцов начинается с индекса 1 (не 0)
-                    // for (int i = 0; i < phoneBrands.Count; i++)
-                    // {
-                    //     worksheet.Cell(i + 2, 1).Value = phoneBrands[i].Title;
-                    //     worksheet.Cell(i + 2, 2).Value = string.Join(", ", phoneBrands[i].PhoneModels.Select(x => x.Title));
-                    // }
-
-                    using (var stream = new MemoryStream())
+                    var data = await excelService.GetExcelReportAsync(orders);
+                    return new FileContentResult(data,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
                     {
-                        workbook.SaveAs(stream);
-                        stream.Flush();
-
-                        return new FileContentResult(stream.ToArray(),
-                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-                        {
-                            FileDownloadName = $"Orders.xlsx"
-                        };
-                    }
+                        FileDownloadName = $"Orders.xlsx"
+                    };
                 }
             }
 
