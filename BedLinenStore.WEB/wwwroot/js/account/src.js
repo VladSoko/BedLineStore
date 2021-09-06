@@ -1,13 +1,25 @@
-﻿
+﻿function ShowSpinner(){
+    console.log("showSpinner")
+    $(".spinner").removeClass("hideSpinner")
+    $(".spinner").addClass("showSpinner")
+}
 
-$(".sendEmail").bind("click", function(e) {
+function HideSpinner(){
+    console.log("hideSpinner")
+    $(".spinner").removeClass("showSpinner")
+    $(".spinner").addClass("hideSpinner")
+}
+
+$(".sendEmail").on("click", function(e) {
     e.preventDefault(); // Отменяет стандартное действие ссылки
-
+    
+    ShowSpinner();
     $.ajax({
         "type": "GET",
         "url": $(this).attr('href'),
         "dataType": "html",
         "success": function (data) {
+            HideSpinner();
             $('#dialogContent').html(data);
             $('#modDialog').modal('show');
         }
@@ -17,7 +29,8 @@ $(".sendEmail").bind("click", function(e) {
 
 $(".forgotPassword").on("click", function(e) {
     e.preventDefault();
-
+    
+    ShowSpinner();
     $.ajax({
         url: "/Account/ForgotPassword",
         method: 'post',
@@ -25,6 +38,7 @@ $(".forgotPassword").on("click", function(e) {
         data: $(".box").serialize(),
         dataType: 'html',
         success: function (data) {
+            HideSpinner();
             $('#dialogContent').html(data);
             $('#modDialog').modal('show');
         }
@@ -33,7 +47,8 @@ $(".forgotPassword").on("click", function(e) {
 
 $(".submit").on("click", function(e) {
     e.preventDefault();
-    
+
+    ShowSpinner();
     $.ajax({
         url: "/Account/Register",
         method: 'post',
@@ -41,6 +56,8 @@ $(".submit").on("click", function(e) {
         data: $(".box").serialize(),
         dataType: 'html',
         success: function (data) {
+            HideSpinner();
+            
             $('#dialogContent').html(data);
             $('#modDialog').modal('show');
         }

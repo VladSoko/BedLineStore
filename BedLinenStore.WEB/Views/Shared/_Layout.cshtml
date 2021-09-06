@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css"/>
 
+    <link rel="stylesheet" href="~/css/helpers/spinner.css"/>
     <link rel="stylesheet" href="~/css/errorStyle.css"/>
     <link rel="stylesheet" href="~/css/helpers/scroll.css"/>
     <link rel="stylesheet" href="~/css/helpers/ibg.css"/>
@@ -25,6 +26,13 @@
 
 <body>
 <div class="main-wrapper">
+
+    <div class="spinner hideSpinner">
+        <svg class="spinner__item" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+            <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+    </div>
+
     <header class="main-wrapper-header">
         <h1 class="header-main-text">
             <a class="header-main-text__item link" asp-controller="Main" asp-action="Index">The Lines</a>
