@@ -64,9 +64,7 @@
 
     <div class="list-inline" style="display: flex;">
         <div>
-            <div id="custom-cells">
-                
-            </div>
+            <input style="width: 60px" id="custom-cells"/>
         </div>
         <div id="custom-cells-events">
 
@@ -98,6 +96,13 @@
     
     $picker.datepicker({
         language: 'en',
+        onShow: function(dp, animationCompleted){
+                if (!animationCompleted) {
+                    console.log('start showing')
+                } else {
+                    console.log('finished showing')
+                }
+            },
         onRenderCell: function (date, cellType) {
             var currentDate = date.getDate();
             // Add extra element, if `eventDates` contains `currentDate`
@@ -125,6 +130,8 @@
     })
     
     // Select initial date from `eventDates`
-    var currentDate = currentDate = new Date();
+    // var currentDate = currentDate = new Date();
+    // $picker.datepicker({    })
+    // $('.datepicker')
     $picker.data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), 10))
 </script>
