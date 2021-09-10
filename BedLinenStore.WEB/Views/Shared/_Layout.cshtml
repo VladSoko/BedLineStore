@@ -38,12 +38,7 @@
     </div>
 
     <header class="main-wrapper-header">
-        <h1 class="header-main-text">
-            <a class="header-main-text__item link" asp-controller="Main" asp-action="Index">The Lines</a>
-        </h1>
-        <nav class="header-items">
-            @await Html.PartialAsync("_LoginPartial")
-        </nav>
+        @await Html.PartialAsync("_LoginPartial")
     </header>
 
     @RenderBody()

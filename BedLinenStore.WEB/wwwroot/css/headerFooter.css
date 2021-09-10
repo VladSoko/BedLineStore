@@ -46,6 +46,17 @@ body {
     align-items: center;
 }
 
+.header-main-text{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.header-main-text__title{
+    font-size: 40px;
+    font-weight: 600;
+}
+
 .header-items {
     display: flex;
 }
