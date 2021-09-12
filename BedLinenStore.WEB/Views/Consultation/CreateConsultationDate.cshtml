@@ -1,0 +1,64 @@
+@model ConsultationDateViewModel
+
+<link rel="stylesheet" href="~/css/consultation/main.css"/>
+
+ <link href="~/css/helpers/dialog.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="~/css/helpers/dialog-spinner.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="~/css/helpers/datepicker.css" rel="stylesheet"
+          type="text/css"/>
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog modal-dialog-centered"></div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+
+                    <h5 class="card-title text-center">Добавление даты на консультацию</h5>
+
+                    <div class="validation mainError" asp-validation-summary="ModelOnly"></div>
+
+                    <form class="form-signin box" method="post">
+
+                        <label class="error" for="inputDate" style="display: none;"></label>
+                        <div class="form-label-group">
+                            
+                            <div id="dialog">
+                                <div class="spinner-modal hide-spinner">
+                                    <svg class="spinner__item" width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                                        <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                                    </svg>
+                                </div>
+                                <div class="dialog-content"></div>
+                            </div>
+                            <input type="text" id="inputDate" class="date form-control" placeholder="Дата"
+                                   asp-for="Date" autocomplete="off"/>
+                            
+                            <label for="inputDate">Дата</label>
+                        </div>
+
+                        <label class="error" for="inputConsultationsNumber" style="display: none;"></label>
+                        <div class="form-label-group">
+                            <input id="inputConsultationsNumber" class="form-control" placeholder="Количество консультаций"
+                                   asp-for="ConsultationsNumber" autocomplete="off">
+                            <label for="inputConsultationsNumber">Количество консультаций</label>
+                        </div>
+
+                        <button class="btn  btn-dark  text-uppercase addDate" type="submit">
+                            Добавить дату
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/js/сonsultation/script.js"></script>

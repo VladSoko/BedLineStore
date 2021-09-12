@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using BedLinenStore.WEB.Models.Entities;
 using BedLinenStore.WEB.Services.Interfaces;
 using Microsoft.Extensions.Options;
-using SendGrid;
-using SendGrid.Helpers.Mail;
 
 namespace BedLinenStore.WEB.Services.Implementations
 {

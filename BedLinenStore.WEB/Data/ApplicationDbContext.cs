@@ -17,6 +17,10 @@ namespace BedLinenStore.WEB.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<FreelanceSewing> FreelanceSewings { get; set; }
+        
+        public DbSet<ConsultationDate> ConsultationDates { get; set; }
+        
+        public DbSet<ConsultationInfo> ConsultationInfos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +31,8 @@ namespace BedLinenStore.WEB.Data
             modelBuilder.Entity<CartLine>().ToTable("CartLine");
             modelBuilder.Entity<Product>().ToTable("Product");
             modelBuilder.Entity<Order>().ToTable("Order");
+            modelBuilder.Entity<ConsultationDate>().ToTable("ConsultationDate");
+            modelBuilder.Entity<ConsultationInfo>().ToTable("ConsultationInfo");
         }
     }
 }

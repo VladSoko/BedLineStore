@@ -1,0 +1,29 @@
+.ui-dialog{
+    position: absolute;
+    z-index: 1000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1ch 1.5ch;
+    border-radius: .3ch;
+    box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+    background: #fff;
+    color: #333;
+}
+
+.ui-dialog-titlebar-close {
+    display: none;
+    visibility: hidden;
+}
+
+.ui-dialog-titlebar{
+    display: none;
+    visibility: hidden;
+}
+
+#dialog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

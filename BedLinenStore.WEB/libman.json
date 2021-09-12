@@ -21,6 +21,10 @@
     {
       "library": "jquery.inputmask@5.0.6",
       "destination": "wwwroot/lib/jquery.inputmask/"
+    },
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/lib/jqueryui/"
     }
   ]
 }

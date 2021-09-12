@@ -139,7 +139,6 @@ namespace BedLinenStore.WEB.Controllers
             var user = userService.GetByEmail(model.Email);
             if (user == null)
             {
-                // Don't reveal that the user does not exist
                 ModelState.AddModelError("", "Пользователь с такой почтой не существует");
                 return View(model);
             }

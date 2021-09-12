@@ -1,13 +1,13 @@
 ﻿
 <div class="header-main-text">
-    <a class="header-main-text__title link" asp-controller="Main" asp-action="Index">The Lines</a>
+    <a class="header-main-text__title link"asp-controller="Main" asp-action="Index" >The Lines</a>
     @if (User.IsInRole(Role.Admin.ToString()))
     {
-        <a class="header-main-text__item link" asp-controller="Main" asp-action="Index">Настроить консультацию</a>
+        <a class="header-main-text__item link" asp-controller="Consultation" asp-action="CreateConsultationDate">Настроить консультацию</a>
     }
     else
     {
-        <a class="header-main-text__item link" asp-controller="Main" asp-action="Index">Забронировать консультацию</a>
+        <a class="header-main-text__item link" asp-controller="Consultation" asp-action="CreateUserConsultation">Забронировать консультацию</a>
     }
     
 </div>

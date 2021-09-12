@@ -85,24 +85,15 @@ namespace BedLinenStore.WEB.Data
 
             context.Products.AddRange(products);
 
-            var users = new[]
+            var user = new User
             {
-                new User
-                {
-                    Email = "admin123@admin.com",
-                    Password = "Admin12345",
-                    Role = Role.Admin
-                },
-                new User
-                {
-                    Email = "user123@user.com",
-                    Password = "User123",
-                    Role = Role.AuthorizedUser,
-                    CartLine = new CartLine()
-                }
+                Email = "admin123@admin.com",
+                Password = "Admin12345",
+                Role = Role.Admin,
+                ConfirmedEmail = true
             };
 
-            context.Users.AddRange(users);
+            context.Users.Add(user);
             context.SaveChanges();
         }
     }

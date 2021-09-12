@@ -2,29 +2,34 @@
 
 <link rel="stylesheet" href="~/css/Login/mainStyle.css"/>
 
+    <link href="~/css/helpers/datepicker.css" rel="stylesheet"
+          type="text/css"/>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
                 <div class="card-body">
-                    
-                 <h5 class="card-title text-center">Выгрузка заказов</h5>
-                    
+
+                    <h5 class="card-title text-center">Выгрузка заказов</h5>
+
                     <div class="validation mainError" asp-validation-summary="ModelOnly"></div>
 
                     <form class="form-signin box" method="post">
 
                         <label class="error" for="inputEmail" style="display: none;"></label>
                         <div class="form-label-group">
-                            <input type="date" id="inputEmail" class="form-control" placeholder="С какого числа"
-                                  asp-for="FromDate"  autocomplete="off">
+                            <input type="text" id="inputEmail" class="form-control" placeholder="С какого числа"
+                                   asp-for="FromDate" autocomplete="off" name="FromDate"/>
+
                             <label for="inputEmail">С какого числа</label>
                         </div>
 
                         <label class="error" for="inputPassword" style="display: none;"></label>
                         <div class="form-label-group">
-                            <input type="date" id="inputPassword" class="form-control" placeholder="По какое число"
-                                  asp-for="ToDate"  autocomplete="off">
+                            <input type="text" id="inputPassword" class="form-control" placeholder="По какое число"
+                                   asp-for="ToDate" autocomplete="off" name="ToDate"/>
+
                             <label for="inputPassword">По какое число</label>
                         </div>
 
@@ -38,3 +43,5 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="~/js/downloadOrderInfo/script.js"></script>
