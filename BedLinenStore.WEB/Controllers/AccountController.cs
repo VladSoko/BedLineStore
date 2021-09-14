@@ -115,7 +115,7 @@ namespace BedLinenStore.WEB.Controllers
             var callbackUrl = Url.Action(
                 "ConfirmEmail",
                 "ConfirmEmail",
-                values: new {email = email, userId = id},
+                values: new {email = email, userId = id, date = DateTime.Now.AddDays(1)},
                 protocol: Request.Scheme);
             
             StringBuilder emailMessage = new StringBuilder

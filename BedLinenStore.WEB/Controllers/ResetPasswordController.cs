@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using BedLinenStore.WEB.Models;
@@ -18,7 +19,7 @@ namespace BedLinenStore.WEB.Controllers
             this.userService = userService;
             this.emailSender = emailSender;
         }
-        
+
         [HttpGet]
         public IActionResult ForgotPassword()
         {
@@ -55,24 +56,27 @@ namespace BedLinenStore.WEB.Controllers
         {
             return View();
         }
-        
+
         [HttpGet]
-        public IActionResult ResetPassword(string email)
+        public IActionResult ResetPassword(string email, DateTime date)
         {
             if (email == null)
             {
                 return BadRequest("A code must be supplied for password reset.");
             }
-            else
+
+            if (date < DateTime.Now)
             {
-                LoginModel loginModel = new LoginModel()
-                {
-                    Email = email
-                };
-                return View(loginModel);
+                return View("ExpiredTime");
             }
+
+            LoginModel loginModel = new LoginModel()
+            {
+                Email = email
+            };
+            return View(loginModel);
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> ForgotPassword(string email)
         {
@@ -89,7 +93,7 @@ namespace BedLinenStore.WEB.Controllers
                     var callbackUrl = Url.Action(
                         "ResetPassword",
                         "ResetPassword",
-                        values: new {email = user.Email },
+                        values: new {email = user.Email, date = DateTime.Now.AddDays(1)},
                         protocol: Request.Scheme);
 
                     StringBuilder emailMessage = new StringBuilder
@@ -101,10 +105,10 @@ namespace BedLinenStore.WEB.Controllers
                         $"«<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Восстановить пароль</a>» для того, чтобы сбросить старый пароль и задать новый.<br/><br/>" +
                         $"С уважением, команда The Lines»"
                     );
-            
+
                     await emailSender.SendEmailAsync(email, "Восстановление парол",
                         emailMessage.ToString());
-                    
+
                     return PartialView("SendEmailSuccess");
                 }
             }

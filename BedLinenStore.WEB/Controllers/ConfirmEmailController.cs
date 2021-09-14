@@ -17,8 +17,13 @@ namespace BedLinenStore.WEB.Controllers
         }
         
         [HttpGet]
-        public ActionResult ConfirmEmail(string email, int userId)
+        public ActionResult ConfirmEmail(string email, int userId, DateTime date)
         {
+            if (date < DateTime.Now)
+            {
+                return View("ExpiredTime");
+            }
+            
             if (email == null)
             {
                 return RedirectToAction("Index", "Main");
