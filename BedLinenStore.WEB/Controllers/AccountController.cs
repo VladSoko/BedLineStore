@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.Security.Claims;
+using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using BedLinenStore.WEB.Enums;
@@ -54,7 +55,7 @@ namespace BedLinenStore.WEB.Controllers
                 if (!user.ConfirmedEmail)
                 {
                     var callbackUrl = Url.Action(
-                        "SendEmail",
+                        "SendEmailToConfirmEmail",
                         "Account",
                         values: new {email = user.Email, userId = user.Id},
                         protocol: Request.Scheme);
@@ -97,7 +98,7 @@ namespace BedLinenStore.WEB.Controllers
 
                     if (createdUser != null)
                     {
-                        return await SendEmail(user.Email, createdUser.Id);
+                        return await SendEmailToConfirmEmail(user.Email, createdUser.Id);
                     }
                     
                     return RedirectToAction("Index", "Main");
@@ -109,125 +110,26 @@ namespace BedLinenStore.WEB.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> SendEmail(string email, int id)
+        public async Task<IActionResult> SendEmailToConfirmEmail(string email, int id)
         {
             var callbackUrl = Url.Action(
                 "ConfirmEmail",
-                "Account",
+                "ConfirmEmail",
                 values: new {email = email, userId = id},
                 protocol: Request.Scheme);
-
-            await emailSender.SendEmailAsync(email, "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+            
+            StringBuilder emailMessage = new StringBuilder
+            (
+                $"Здравствуйте! Это письмо на подтверждение вашей электронной почты.<br/><br/>" +
+                $"Перейдите по ссылке «<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Подтвердить адрес электронной " +
+                $"почты</a>» чтобы закончить регистрацию"
+            );
+            
+            await emailSender.SendEmailAsync(email, "Подтверждение электронной почты",
+                emailMessage.ToString());
             return PartialView("SendEmailSuccess");
         }
-
-        [HttpGet]
-        public IActionResult ForgotPassword()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult ResetPassword(LoginModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            var user = userService.GetByEmail(model.Email);
-            if (user == null)
-            {
-                ModelState.AddModelError("", "Пользователь с такой почтой не существует");
-                return View(model);
-            }
-
-            var result = userService.ResetPassword(user, model.Password);
-            if (result)
-            {
-                return RedirectToAction("ResetPasswordConfirmation");
-            }
-
-            ModelState.AddModelError("", "Что-то пошло не так");
-            return View(model);
-        }
-
-        [HttpGet]
-        public IActionResult ResetPasswordConfirmation()
-        {
-            return View();
-        }
         
-        [HttpGet]
-        public IActionResult ResetPassword(string email)
-        {
-            if (email == null)
-            {
-                return BadRequest("A code must be supplied for password reset.");
-            }
-            else
-            {
-                LoginModel loginModel = new LoginModel()
-                {
-                    Email = email
-                };
-                return View(loginModel);
-            }
-        }
-        
-        [HttpPost]
-        public async Task<IActionResult> ForgotPassword(string email)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = userService.GetByEmail(email);
-
-                if (user == null)
-                {
-                    ModelState.AddModelError("", "Пользователь с этим логином не существует");
-                }
-                else
-                {
-                    var callbackUrl = Url.Action(
-                        "ResetPassword",
-                        "Account",
-                        values: new {email = user.Email },
-                        protocol: Request.Scheme);
-
-                    await emailSender.SendEmailAsync(
-                        email,
-                        "Reset Password",
-                        $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-                    return PartialView("SendEmailSuccess");
-                }
-            }
-
-            return View(email);
-        }
-
-        public ActionResult ConfirmEmail(string email, int userId)
-        {
-            if (email == null)
-            {
-                return RedirectToAction("Index", "Main");
-            }
-
-            var user = userService.GetById(userId);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with email '{email}'.");
-            }
-
-            var result = userService.ConfirmEmail(user, email);
-            if (!result)
-            {
-                throw new InvalidOperationException($"Error confirming email for user with email '{email}':");
-            }
-
-            return View(user);
-        }
-
         private async Task Authenticate(User user)
         {
             var claims = new List<Claim>

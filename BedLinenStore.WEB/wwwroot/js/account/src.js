@@ -32,7 +32,7 @@ $(".forgotPassword").on("click", function(e) {
     
     ShowSpinner();
     $.ajax({
-        url: "/Account/ForgotPassword",
+        url: "/ResetPassword/ForgotPassword",
         method: 'post',
 
         data: $(".box").serialize(),
