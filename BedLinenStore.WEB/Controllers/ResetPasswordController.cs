@@ -90,30 +90,34 @@ namespace BedLinenStore.WEB.Controllers
                 }
                 else
                 {
-                    var callbackUrl = Url.Action(
-                        "ResetPassword",
-                        "ResetPassword",
-                        values: new {email = user.Email, date = DateTime.Now.AddDays(1)},
-                        protocol: Request.Scheme);
-
-                    StringBuilder emailMessage = new StringBuilder
-                    (
-                        $"«Здравствуйте! Вы получили это письмо, так как " +
-                        $"Вами было запрошено восстановление пароля. Если это были не Вы, " +
-                        $"пожалуйста, свяжитесь с нашей службой поддержки по номеру +375 29 7444 009.<br/>" +
-                        $"Если восстановление пароля для Вас актуально, пожалуйста, перейдите по ссылке " +
-                        $"«<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Восстановить пароль</a>» для того, чтобы сбросить старый пароль и задать новый.<br/><br/>" +
-                        $"С уважением, команда The Lines»"
-                    );
-
-                    await emailSender.SendEmailAsync(email, "Восстановление парол",
-                        emailMessage.ToString());
-
-                    return PartialView("SendEmailSuccess");
+                    return await SendEmailToResetPassword(user.Email);
                 }
             }
 
             return View(email);
+        }
+        
+        public async Task<IActionResult> SendEmailToResetPassword(string email)
+        {
+            var callbackUrl = Url.Action(
+                "ResetPassword",
+                "ResetPassword",
+                values: new {email = email, date = DateTime.Now.AddDays(1)},
+                protocol: Request.Scheme);
+
+            StringBuilder emailMessage = new StringBuilder
+            (
+                $"«Здравствуйте! Вы получили это письмо, так как " +
+                $"Вами было запрошено восстановление пароля. Если это были не Вы, " +
+                $"пожалуйста, свяжитесь с нашей службой поддержки по номеру +375 29 7444 009.<br/>" +
+                $"Если восстановление пароля для Вас актуально, пожалуйста, перейдите по ссылке " +
+                $"«<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Восстановить пароль</a>» для того, чтобы сбросить старый пароль и задать новый.<br/><br/>" +
+                $"С уважением, команда The Lines»"
+            );
+
+            await emailSender.SendEmailAsync(email, "Восстановление парол",
+                emailMessage.ToString());
+            return PartialView("SendEmailSuccess");
         }
     }
 }

@@ -9,13 +9,13 @@ namespace BedLinenStore.WEB.DependencyInjection
         public static void Build(this IServiceCollection services)
         {
             //Services
-            services.AddScoped<IMainInfoService, MainInfoService>();
-            services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<ICartLineService, CartLineService>();
-            services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IFreelanceSewingService, FreelanceSewingService>();
-            services.AddScoped<IOrderService, OrderService>();
+            services.AddTransient<IMainInfoService, MainInfoService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ICartLineService, CartLineService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IFreelanceSewingService, FreelanceSewingService>();
+            services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IConsultationDateService, ConsultationDateService>();
             services.AddTransient<IConsultationInfoService, ConsultationInfoService>();
             
