@@ -7,7 +7,6 @@
     <ItemGroup>
         <Folder Include="wwwroot\image\Main\" />
         <Folder Include="wwwroot\image\hover\" />
-        <Folder Include="wwwroot\js\calendar" />
         <Folder Include="wwwroot\lib\" />
     </ItemGroup>
 

@@ -103,7 +103,11 @@ namespace BedLinenStore.WEB.Controllers
                     return RedirectToAction("Index", "Main");
                 }
 
-                ModelState.AddModelError("", "Пользователь с этим логином уже существует");
+                return Json(new
+                {
+                    status = "validationerror",
+                    message = "Пользователь с этим логином уже существует"
+                });
             }
 
             return View(model);

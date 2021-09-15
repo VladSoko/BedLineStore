@@ -10,23 +10,6 @@ function HideSpinner(){
     $(".spinner").addClass("hideSpinner")
 }
 
-$(".sendEmail").on("click", function(e) {
-    e.preventDefault(); // Отменяет стандартное действие ссылки
-    
-    ShowSpinner();
-    $.ajax({
-        "type": "GET",
-        "url": $(this).attr('href'),
-        "dataType": "html",
-        "success": function (data) {
-            HideSpinner();
-            $('#dialogContent').html(data);
-            $('#modDialog').modal('show');
-        }
-    });
-})
-
-
 $(".forgotPassword").on("click", function(e) {
     e.preventDefault();
     
@@ -40,7 +23,6 @@ $(".forgotPassword").on("click", function(e) {
             HideSpinner();
 
             console.log(data)
-            debugger
 
             var $summaryUl = $(".validation-summary-errors");
 
@@ -72,12 +54,26 @@ $(".submit").on("click", function(e) {
         method: 'post',
 
         data: $(".box").serialize(),
-        dataType: 'html',
         success: function (data) {
             HideSpinner();
-            
-            $('#dialogContent').html(data);
-            $('#modDialog').modal('show');
+
+            console.log(data)
+
+            var $summaryUl = $(".validation-summary-errors");
+
+            console.log($summaryUl)
+            $summaryUl.empty();
+
+            if (data.status !== 'validationerror') {
+                $('#dialogContent').html(data);
+                $('#modDialog').modal('show');
+            }
+            else {
+                $summaryUl
+                    .append($("<ul>")
+                        .append($("<li>")
+                            .text(data.message)))
+            }
         }
     });
 })
