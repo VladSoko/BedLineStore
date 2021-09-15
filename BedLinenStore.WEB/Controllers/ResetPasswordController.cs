@@ -37,8 +37,11 @@ namespace BedLinenStore.WEB.Controllers
             var user = userService.GetByEmail(model.Email);
             if (user == null)
             {
-                ModelState.AddModelError("", "Пользователь с такой почтой не существует");
-                return View(model);
+                return Json(new
+                {
+                    status = "validationerror",
+                    message = "Пользователь с такой почтой не существует"
+                });
             }
 
             var result = userService.ResetPassword(user, model.Password);
@@ -86,7 +89,11 @@ namespace BedLinenStore.WEB.Controllers
 
                 if (user == null)
                 {
-                    ModelState.AddModelError("", "Пользователь с этим логином не существует");
+                    return Json(new
+                    {
+                        status = "validationerror",
+                        message = "Пользователь с такой почтой не существует"
+                    });
                 }
                 else
                 {

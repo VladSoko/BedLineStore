@@ -36,11 +36,29 @@ $(".forgotPassword").on("click", function(e) {
         method: 'post',
 
         data: $(".box").serialize(),
-        dataType: 'html',
         success: function (data) {
             HideSpinner();
-            $('#dialogContent').html(data);
-            $('#modDialog').modal('show');
+
+            console.log(data)
+            debugger
+
+            var $summaryUl = $(".validation-summary-errors");
+
+            console.log($summaryUl)
+            $summaryUl.empty();
+
+            if (data.status !== 'validationerror') {
+                $('#dialogContent').html(data);
+                $('#modDialog').modal('show');
+            }
+            else {
+                $summaryUl
+                    .append($("<ul>")
+                        .append($("<li>")
+                            .text(data.message)))
+            }
+            
+           
         }
     });
 })
