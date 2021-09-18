@@ -2,12 +2,12 @@
 
 <link rel="stylesheet" href="~/css/consultation/main.css"/>
 
- <link href="~/css/helpers/dialog.css" rel="stylesheet"
-          type="text/css"/>
-    <link href="~/css/helpers/dialog-spinner.css" rel="stylesheet"
-          type="text/css"/>
-    <link href="~/css/helpers/datepicker.css" rel="stylesheet"
-          type="text/css"/>
+<link href="~/css/helpers/dialog.css" rel="stylesheet"
+      type="text/css"/>
+<link href="~/css/helpers/dialog-spinner.css" rel="stylesheet"
+      type="text/css"/>
+<link href="~/css/helpers/datepicker.css" rel="stylesheet"
+      type="text/css"/>
 
 <div id="modDialog" class="modal fade">
     <div id="dialogContent" class="modal-dialog modal-dialog-centered"></div>
@@ -22,13 +22,13 @@
 
                     <h5 class="card-title text-center">Добавление даты на консультацию</h5>
 
-                    <div class="validation mainError" asp-validation-summary="ModelOnly"></div>
+                    <div class="validation-summary-errors mainError"></div>
 
                     <form class="form-signin box" method="post">
 
                         <label class="error" for="inputDate" style="display: none;"></label>
                         <div class="form-label-group">
-                            
+
                             <div id="dialog">
                                 <div class="spinner-modal hide-spinner">
                                     <svg class="spinner__item" width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@
                             </div>
                             <input type="text" id="inputDate" class="date form-control" placeholder="Дата"
                                    asp-for="Date" autocomplete="off"/>
-                            
+
                             <label for="inputDate">Дата</label>
                         </div>
 
@@ -60,5 +60,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="~/js/сonsultation/script.js"></script>

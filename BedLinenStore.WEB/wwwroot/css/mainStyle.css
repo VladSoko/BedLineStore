@@ -35,7 +35,6 @@
 }
 
 .description-text-title__item {
-    font-family: Times New Roman, serif;
     font-weight: bold;
     font-size: 30px;
     line-height: 34px;
@@ -49,7 +48,6 @@
 .description-text-list__item {
     width: 235px;
     padding: 0;
-    font-family: Times New Roman, serif;
     font-size: 19px;
     line-height: 28px;
     color: #000000;
@@ -79,7 +77,6 @@
 }
 
 .description-text-button__text {
-    font-family: Verdana, serif;
     font-weight: bold;
     font-size: 14px;
     color: #FFFFFF;
@@ -110,7 +107,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Times New Roman, serif;
     color: #000000;
     margin: 0 0 50px 0;
 }
@@ -153,7 +149,6 @@
     padding: 0 15px;
     width: 200px;
     background: #FFFFFF;
-    font-family: Times New Roman, serif;
     color: #000000;
 }
 
@@ -227,7 +222,6 @@
     flex-direction: column;
     align-items: center;
     margin: 0 0 20px 0;
-    font-family: Times New Roman, serif;
     color: #000000;
 }
 
@@ -263,7 +257,6 @@
 
 .input-label {
     width: 100px;
-    font-family: Times New Roman, serif;
     font-size: 14px;
     color: #000000;
     display: block;
@@ -283,7 +276,6 @@
 }
 
 .form-content-button__text {
-    font-family: Verdana, serif;
     font-weight: bold;
     font-size: 14px;
     color: #FFFFFF;
@@ -300,7 +292,6 @@
 
 .form-footer {
     width: 350px;
-    font-family: Times New Roman, serif;
     font-size: 12px;
     line-height: 10px;
     text-align: center;
@@ -326,7 +317,6 @@
 }
 
 .footer-text__title {
-    font-family: Times New Roman, serif;
     font-weight: bold;
     font-size: 20px;
     color: #000000;
@@ -335,7 +325,6 @@
 
 .footer-text__phone,
 .footer-text__email {
-    font-family: Times New Roman, serif;
     font-size: 16px;
     text-align: center;
     color: #000000;
@@ -401,44 +390,7 @@
     height: 140px;
 }
 
-/*.footerImages .image1 {*/
-/*    position: absolute;*/
-/*    width: 280px;*/
-/*    height: 291px;*/
-/*}*/
-
-/*.footerImages .image2 {*/
-/*    position: absolute;*/
-/*    width: 150px;*/
-/*    height: 140px;*/
-/*    left: 292px;*/
-/*}*/
-
-/*.footerImages .image3 {*/
-/*    position: absolute;*/
-/*    width: 150px;*/
-/*    height: 140px;*/
-/*    left: 292px;*/
-/*    top: 151px;*/
-/*}*/
-
-/*.footerImages .image4 {*/
-/*    position: absolute;*/
-/*    width: 150px;*/
-/*    height: 140px;*/
-/*    left: 454px;*/
-/*}*/
-
-/*.footerImages .image5 {*/
-/*    position: absolute;*/
-/*    width: 150px;*/
-/*    height: 140px;*/
-/*    left: 454px;*/
-/*    top: 151px;*/
-/*}*/
-
 .modal-body-head {
-    font-family: Times New Roman, serif;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;

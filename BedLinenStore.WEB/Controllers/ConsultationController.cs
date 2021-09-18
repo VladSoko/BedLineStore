@@ -28,11 +28,7 @@ namespace BedLinenStore.WEB.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult CreateConsultationDate()
         {
-            var consultationDate = new ConsultationDateViewModel
-            {
-                Date = DateTime.Now.Date
-            };
-            return View(consultationDate);
+            return View();
         }
 
         [HttpGet]
@@ -64,8 +60,11 @@ namespace BedLinenStore.WEB.Controllers
 
                 if (consultationDate != null)
                 {
-                    ModelState.AddModelError("", "Эта дата уже добавлена в базу");
-                    return View(model);
+                    return Json(new
+                    {
+                        status = "validationerror",
+                        message = "Эта дата уже добавлена в базу"
+                    });
                 }
 
                 var consultationDateForCreate = new ConsultationDate

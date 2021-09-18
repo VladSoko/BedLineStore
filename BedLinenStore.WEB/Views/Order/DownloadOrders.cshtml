@@ -17,20 +17,20 @@
 
                     <form class="form-signin box" method="post">
 
-                        <label class="error" for="inputEmail" style="display: none;"></label>
+                        <label class="error" for="inputFromDate" style="display: none;"></label>
                         <div class="form-label-group">
-                            <input type="text" id="inputEmail" class="form-control" placeholder="С какого числа"
+                            <input type="text" id="inputFromDate" class="form-control" placeholder="С какого числа"
                                    asp-for="FromDate" autocomplete="off" name="FromDate"/>
 
-                            <label for="inputEmail">С какого числа</label>
+                            <label for="inputFromDate">С какого числа</label>
                         </div>
 
-                        <label class="error" for="inputPassword" style="display: none;"></label>
+                        <label class="error" for="inputToDate" style="display: none;"></label>
                         <div class="form-label-group">
-                            <input type="text" id="inputPassword" class="form-control" placeholder="По какое число"
+                            <input type="text" id="inputToDate" class="form-control" placeholder="По какое число"
                                    asp-for="ToDate" autocomplete="off" name="ToDate"/>
 
-                            <label for="inputPassword">По какое число</label>
+                            <label for="inputToDate">По какое число</label>
                         </div>
 
                         <button class="btn  btn-dark  text-uppercase" type="submit">
@@ -43,5 +43,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="~/js/downloadOrderInfo/script.js"></script>

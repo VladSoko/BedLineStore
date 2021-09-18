@@ -35,7 +35,7 @@
                                     @if (User.IsInRole(Role.AuthorizedUser.ToString()))
                                     {
                                         <a class="product-grid__btn product-grid__add-to-cart"
-                                           onclick="myfunction(@item.Id)"
+                                           onclick="addToCart(@item.Id)"
                                            style="display:block">
                                             <i class="fa fa-cart-arrow-down"></i>
                                             Добавить в корзину
@@ -53,7 +53,7 @@
 
 
 <script type="text/javascript">
-    function myfunction(id) {
+    function addToCart(id) {
         var inputCategoryIdInput = document.getElementById("categoryIdInput" + id);
             $.ajax({
                 type: "GET",

@@ -15,7 +15,6 @@
 }
 
 .viewProduct_main_text {
-    font-family: Times New Roman;
     font-style: normal;
     color: #000;
     text-align: center;
@@ -24,9 +23,6 @@
 
 .viewProduct_main_text-name {
     font-weight: bold;
-}
-
-.viewProduct_main_text-price {
 }
 
 .viewProduct_main_text-description {

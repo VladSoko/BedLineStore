@@ -13,15 +13,13 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
 
-         
-                            <h5 class="card-title text-center">Авторизация</h5>
-          
-                    
+                    <h5 class="card-title text-center">Авторизация</h5>
 
-                    @* <div class="validation mainError" asp-validation-summary="ModelOnly"></div> *@
                     <div class="validation-summary-errors mainError">
                         <ul>
-                            @foreach (var error in ViewData.ModelState.Where(s => s.Value.Errors.Count != 0).SelectMany(s => s.Value.Errors))
+                            @foreach (var error in ViewData.ModelState
+                                .Where(s => s.Value.Errors.Count != 0)
+                                .SelectMany(s => s.Value.Errors))
                             {
                                 <li>@Html.Raw(error.ErrorMessage)</li>
                             }
@@ -47,9 +45,13 @@
                         <button class="btn  btn-dark  text-uppercase" type="submit">
                             Войти
                         </button>
-                        
+
                         <div class="footer-forgotPassword">
-                            <a class="footer-forgotPassword__text" asp-controller="ResetPassword" asp-action="ForgotPassword">Востановить пароль</a>
+                            <a class="footer-forgotPassword__text"
+                               asp-controller="ResetPassword"
+                               asp-action="ForgotPassword">
+                                Восстановить пароль
+                            </a>
                         </div>
 
                     </form>
@@ -58,5 +60,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="~/js/account/src.js"></script>
