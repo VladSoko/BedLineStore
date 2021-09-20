@@ -30,19 +30,11 @@
     background: #F4F2F5;
 }
 
-.description-text-title {
-    margin: 0 0 20px 0;
-}
-
 .description-text-title__item {
     font-weight: bold;
     font-size: 30px;
     line-height: 34px;
     color: #000000;
-}
-
-.description-text-list {
-    margin: 0 0 30px 0;
 }
 
 .description-text-list__item {
