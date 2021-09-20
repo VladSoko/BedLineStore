@@ -11,11 +11,17 @@ namespace BedLinenStore.WEB.Data
         }
 
         public DbSet<User> Users { get; set; }
+        
         public DbSet<MainInfo> MainInfos { get; set; }
+        
         public DbSet<CartLine> CartLines { get; set; }
+        
         public DbSet<Order> Orders { get; set; }
+        
         public DbSet<Category> Categories { get; set; }
+        
         public DbSet<Product> Products { get; set; }
+        
         public DbSet<FreelanceSewing> FreelanceSewings { get; set; }
         
         public DbSet<ConsultationDate> ConsultationDates { get; set; }

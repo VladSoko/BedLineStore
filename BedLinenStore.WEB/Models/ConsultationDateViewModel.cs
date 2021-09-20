@@ -5,10 +5,8 @@ namespace BedLinenStore.WEB.Models
 {
     public class ConsultationDateViewModel
     {
-        [Required]
-        public DateTime Date { get; set; }
+        [Required] public DateTime Date { get; set; }
         
-        [Required]
-        public int ConsultationsNumber { get; set; }
+        [Required] public int ConsultationsNumber { get; set; }
     }
 }
