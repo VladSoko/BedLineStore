@@ -18,11 +18,6 @@ namespace BedLinenStore.WEB.Controllers
             return View();
         }
 
-        public IActionResult AboutUs()
-        {
-            return View();
-        }
-
         [HttpPost]
         public IActionResult SendRequest(FreelanceSewing freelanceSewing)
         {

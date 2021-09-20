@@ -17,25 +17,6 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-.main-wrapper-footer {
-    padding: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-.main-wrapper-footer > a {
-    margin: 0;
-    color: black;
-    text-decoration: none;
-}
-
-.main-wrapper-footer > a:hover {
-    text-decoration: none;
-    color: #999999;
 }
 
 .main-wrapper-header {
